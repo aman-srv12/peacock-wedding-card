@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Peacock feather mark</title>
+  <path fill="#0b4050" d="M31 58c-2-18 1-31 10-43 3-4 7-7 12-9-5 5-8 10-10 16-4 11-5 23-3 36h-9Z"/>
+  <path fill="#c7a45a" d="M45 10c8 4 10 13 5 20-5 6-14 5-18-1-5-8 2-19 13-19Z"/>
+  <path fill="#123c32" d="M45 16c5 2 6 7 3 11-3 3-8 3-11-1-2-4 2-10 8-10Z"/>
+  <circle cx="44" cy="23" r="4" fill="#082d3d"/>
+</svg>

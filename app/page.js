@@ -4,20 +4,25 @@ import {
   OrnamentDivider,
   RoyalFrame,
 } from "../components/InvitationUI";
+import { wedding } from "../data/wedding";
 
 export default function Home() {
+  const { groom, bride } = wedding.couple;
+
   return (
     <main className="design-preview">
       <RoyalFrame className="design-preview__frame">
         <InvitationSection eyebrow="Wedding Invitation">
           <p className="design-preview__kicker">Together with their families</p>
           <h1 className="couple-title">
-            Aman <span>&amp;</span> Ananya
+            {groom.firstName} <span>&amp;</span> {bride.firstName}
           </h1>
           <OrnamentDivider />
           <InvitationCard className="design-preview__card">
-            <p className="design-preview__date">6–8 December 2026</p>
-            <p className="design-preview__place">Lucknow · Uttar Pradesh</p>
+            <p className="design-preview__date">{wedding.dateRange}</p>
+            <p className="design-preview__place">
+              {wedding.city} · {wedding.state}
+            </p>
           </InvitationCard>
         </InvitationSection>
       </RoyalFrame>
