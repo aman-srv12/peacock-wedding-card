@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { wedding } from "../data/wedding";
+import ScratchReveal from "./ScratchReveal";
 import { OrnamentDivider, RoyalFrame } from "./InvitationUI";
 
 export default function CoupleHero() {
@@ -17,8 +18,8 @@ export default function CoupleHero() {
 
       <RoyalFrame className="couple-hero__frame">
         <div className="couple-hero__arch">
-          <p className="eyebrow">Together with their families</p>
-          <p className="couple-hero__prelude">request the pleasure of your company</p>
+          <p className="eyebrow">Save the Date</p>
+          <p className="couple-hero__prelude">With our families&apos; blessings</p>
 
           <h2 id="couple-hero-title" className="couple-hero__names">
             <span>{groom.firstName}</span>
@@ -29,20 +30,22 @@ export default function CoupleHero() {
           <OrnamentDivider />
 
           <p className="couple-hero__invitation">
-            as they begin their forever
+            we invite you to celebrate our wedding.
           </p>
 
-          <div className="couple-hero__date-lockup">
-            <span>{month}</span>
-            <strong>{days}</strong>
-            <span>{year}</span>
-          </div>
+          <ScratchReveal className="couple-hero__scratch">
+            <div className="couple-hero__date-lockup">
+              <span>{month}</span>
+              <strong>{days}</strong>
+              <span>{year}</span>
+            </div>
+          </ScratchReveal>
 
           <p className="couple-hero__location">
             {wedding.city} · {wedding.state}
           </p>
 
-          <p className="couple-hero__hint">Scroll to celebrate with us</p>
+          <p className="couple-hero__hint">Continue to our celebration</p>
         </div>
       </RoyalFrame>
     </section>
