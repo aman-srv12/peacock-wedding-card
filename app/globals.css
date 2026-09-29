@@ -9,6 +9,7 @@
   --muted: #315a5a;
   --date-blue: #173a8d;
   --display-font: var(--font-display-face), Georgia, serif;
+  --date-font: var(--font-date-face), "Times New Roman", serif;
   --body-font: var(--font-body-face), Arial, sans-serif;
   --devanagari-font: var(--font-devanagari-face), "Noto Serif Devanagari", serif;
   --watercolor-bg: url("https://shubhinvite.vercel.app/themes/peacock/watercolor-bg.webp");
@@ -222,11 +223,11 @@ button {
   display: grid;
   place-content: center;
   justify-items: center;
-  gap: 0.08em;
-  padding-top: 0.05em;
+  gap: 0.16em;
+  padding-top: 0.02em;
   color: var(--date-blue);
-  font-family: var(--display-font);
-  line-height: 0.92;
+  font-family: var(--date-font);
+  line-height: 1;
   text-align: center;
   text-transform: uppercase;
 }
@@ -238,16 +239,19 @@ button {
 }
 
 .date-frame__date strong {
-  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  letter-spacing: 0.08em;
 }
 
 .date-frame__date span:first-of-type {
-  font-size: clamp(1.5rem, 3.25vw, 2.05rem);
+  font-size: clamp(1.5rem, 3.35vw, 2.1rem);
+  letter-spacing: 0.055em;
 }
 
 .date-frame__date span:last-of-type {
-  margin-top: 0.12em;
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  margin-top: 0.05em;
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+  letter-spacing: 0.1em;
 }
 
 .scratch-oval__canvas {
@@ -440,15 +444,15 @@ button {
   }
 
   .date-frame__date strong {
-    font-size: clamp(1.28rem, 6.3vw, 1.7rem);
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
   }
 
   .date-frame__date span:first-of-type {
-    font-size: clamp(1.3rem, 6.4vw, 1.72rem);
+    font-size: clamp(1.3rem, 6.2vw, 1.68rem);
   }
 
   .date-frame__date span:last-of-type {
-    font-size: clamp(1.2rem, 5.8vw, 1.55rem);
+    font-size: clamp(1.12rem, 5.25vw, 1.45rem);
   }
 
   .desktop-break {

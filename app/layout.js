@@ -1,9 +1,17 @@
 import {
+  Cinzel,
   Cormorant_Garamond,
   Montserrat,
   Noto_Serif_Devanagari,
 } from "next/font/google";
 import "./globals.css";
+
+const dateFont = Cinzel({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-date-face",
+  display: "swap",
+});
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -65,7 +73,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${displayFont.variable} ${bodyFont.variable} ${devanagariFont.variable}`}
+        className={`${dateFont.variable} ${displayFont.variable} ${bodyFont.variable} ${devanagariFont.variable}`}
       >
         {children}
       </body>
