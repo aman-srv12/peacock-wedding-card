@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="invitation">
       <InvitationCover />
-      <GaneshWelcome />
       <CoupleHero />
+      <GaneshWelcome />
     </main>
   );
 }

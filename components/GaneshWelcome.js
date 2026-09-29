@@ -3,39 +3,26 @@ import Image from "next/image";
 export default function GaneshWelcome() {
   return (
     <section className="ganesh-welcome" aria-labelledby="ganesh-welcome-title">
-      <div className="page-top-rule" aria-hidden="true" />
-      <div className="page-petals" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </div>
-
-      <div className="ganesh-welcome__corner" aria-hidden="true">
-        <Image src="/peacock-corner.svg" alt="" width={560} height={560} />
+      <div className="peacock-page__frame" aria-hidden="true" />
+      <div className="peacock-page__feather peacock-page__feather--ganesh" aria-hidden="true">
+        <Image src="/peacock-feather.svg" alt="" width={190} height={450} />
       </div>
 
       <div className="ganesh-welcome__content">
         <p className="ganesh-welcome__eyebrow">With divine blessings</p>
 
         <div className="ganesh-welcome__mark" aria-hidden="true">
-          <Image
-            src="/ganesh-line-art.svg"
-            alt=""
-            width={240}
-            height={260}
-            priority
-          />
+          <Image src="/ganesh-line-art.svg" alt="" width={240} height={260} />
         </div>
 
         <p className="ganesh-welcome__invocation">श्री गणेशाय नमः</p>
-
-        <h1 id="ganesh-welcome-title" className="ganesh-welcome__title">
+        <h2 id="ganesh-welcome-title" className="ganesh-welcome__title">
           शुभारम्भ
-        </h1>
+        </h2>
 
-        <div className="fine-divider" aria-hidden="true">
+        <div className="peacock-divider peacock-divider--ganesh" aria-hidden="true">
           <span />
-          <i>✦</i>
+          <b>✦</b>
           <span />
         </div>
 
@@ -45,14 +32,8 @@ export default function GaneshWelcome() {
         </p>
 
         <p className="ganesh-welcome__blessing">
-          With the blessings of Lord Ganesha,
-          <br className="desktop-break" /> our celebration begins.
+          With the blessings of Lord Ganesha, our celebrations begin.
         </p>
-
-        <span className="ganesh-welcome__continue" aria-hidden="true">
-          Scroll to continue
-          <i />
-        </span>
       </div>
     </section>
   );

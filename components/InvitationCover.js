@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { wedding } from "../data/wedding";
 
 export default function InvitationCover() {
   const [opening, setOpening] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const { groom, bride } = wedding.couple;
 
   useEffect(() => {
     if (dismissed) return undefined;
@@ -26,45 +24,47 @@ export default function InvitationCover() {
     <button
       type="button"
       className={`invitation-cover${opening ? " invitation-cover--opening" : ""}`}
-      onClick={() => setOpening(true)}
+      onClick={() => {
+        if (!opening) setOpening(true);
+      }}
       onAnimationEnd={(event) => {
-        if (opening && event.animationName === "invitation-open") {
+        if (
+          opening &&
+          event.currentTarget === event.target &&
+          event.animationName === "cover-exit"
+        ) {
           setDismissed(true);
         }
       }}
       aria-label="Open Aman and Ananya's wedding invitation"
     >
-      <span className="invitation-cover__top-rule" aria-hidden="true" />
-      <span className="invitation-cover__petals" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
+      <span className="invitation-cover__wash" aria-hidden="true" />
+      <span className="invitation-cover__frame" aria-hidden="true" />
 
-      <span className="invitation-cover__corner" aria-hidden="true">
-        <Image
-          src="/peacock-corner.svg"
-          alt=""
-          width={560}
-          height={560}
-          priority
-        />
+      <span className="invitation-cover__feather invitation-cover__feather--left" aria-hidden="true">
+        <Image src="/peacock-feather.svg" alt="" width={180} height={430} priority />
+      </span>
+      <span className="invitation-cover__feather invitation-cover__feather--right" aria-hidden="true">
+        <Image src="/peacock-feather.svg" alt="" width={180} height={430} />
       </span>
 
       <span className="invitation-cover__content">
-        <span className="invitation-cover__mark" aria-hidden="true">✦</span>
-        <span className="invitation-cover__eyebrow">You&apos;re invited</span>
-        <span className="invitation-cover__names">
-          {groom.firstName} <i>&amp;</i> {bride.firstName}
+        <span className="invitation-cover__crest" aria-hidden="true">
+          <Image src="/peacock-mark.svg" alt="" width={42} height={42} priority />
         </span>
-        <span className="invitation-cover__occasion">
-          A wedding celebration in {wedding.city}
+
+        <span className="invitation-cover__eyebrow">You&apos;re invited</span>
+
+        <span className="invitation-cover__ornament" aria-hidden="true">
+          <i />
+          <b>✦</b>
+          <i />
         </span>
 
         <span className="invitation-cover__tap">
-          <i aria-hidden="true" />
+          <b aria-hidden="true">✧</b>
           Tap to open
-          <i aria-hidden="true" />
+          <b aria-hidden="true">✧</b>
         </span>
       </span>
     </button>
