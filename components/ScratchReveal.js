@@ -4,7 +4,12 @@ import { useEffect, useRef, useState } from "react";
 
 const SCRATCH_THRESHOLD = 0.46;
 
-export default function ScratchReveal({ children, className = "" }) {
+export default function ScratchReveal({
+  children,
+  className = "",
+  prompt = "Gently scratch to reveal our wedding date",
+  revealedText = "Our celebration begins in Lucknow",
+}) {
   const canvasRef = useRef(null);
   const drawingRef = useRef(false);
   const lastPointRef = useRef(null);
@@ -37,7 +42,7 @@ export default function ScratchReveal({ children, className = "" }) {
       context.fillStyle = gradient;
       context.fillRect(0, 0, rect.width, rect.height);
 
-      context.globalAlpha = 0.16;
+      context.globalAlpha = 0.15;
       context.strokeStyle = "#e8cf91";
       context.lineWidth = 1;
       for (let x = -rect.height; x < rect.width + rect.height; x += 18) {
@@ -46,13 +51,32 @@ export default function ScratchReveal({ children, className = "" }) {
         context.lineTo(x + rect.height, rect.height);
         context.stroke();
       }
-      context.globalAlpha = 1;
 
+      context.globalAlpha = 0.22;
+      context.strokeStyle = "#f2dfaa";
+      context.lineWidth = 1.25;
+      const eyeX = rect.width * 0.5;
+      const eyeY = rect.height * 0.5;
+      context.beginPath();
+      context.ellipse(eyeX, eyeY, 31, 15, 0, 0, Math.PI * 2);
+      context.stroke();
+      context.beginPath();
+      context.ellipse(eyeX, eyeY, 12, 8, 0, 0, Math.PI * 2);
+      context.stroke();
+
+      context.globalAlpha = 1;
+      const bodyStyles = getComputedStyle(document.body);
+      const bodyFace =
+        bodyStyles.getPropertyValue("--font-body-face").trim() || "Arial";
       context.fillStyle = "#f2dfaa";
       context.textAlign = "center";
       context.textBaseline = "middle";
-      context.font = "600 11px Arial, sans-serif";
-      context.fillText("GENTLY SCRATCH TO REVEAL", rect.width / 2, rect.height / 2);
+      context.font = `600 10px ${bodyFace}, Arial, sans-serif`;
+      context.fillText(
+        "GENTLY SCRATCH TO REVEAL",
+        rect.width / 2,
+        rect.height / 2 + 30,
+      );
     };
 
     paintCover();
@@ -80,11 +104,17 @@ export default function ScratchReveal({ children, className = "" }) {
     context.globalCompositeOperation = "destination-out";
     context.lineCap = "round";
     context.lineJoin = "round";
-    context.lineWidth = Math.max(28, canvas.getBoundingClientRect().width * 0.075);
+    context.lineWidth = Math.max(30, canvas.getBoundingClientRect().width * 0.08);
     context.beginPath();
     context.moveTo(from.x, from.y);
     context.lineTo(to.x, to.y);
     context.stroke();
+
+    if (from.x === to.x && from.y === to.y) {
+      context.beginPath();
+      context.arc(from.x, from.y, context.lineWidth / 2, 0, Math.PI * 2);
+      context.fill();
+    }
     context.restore();
   };
 
@@ -110,7 +140,9 @@ export default function ScratchReveal({ children, className = "" }) {
     event.currentTarget.setPointerCapture?.(event.pointerId);
     drawingRef.current = true;
     setStarted(true);
-    lastPointRef.current = pointFromEvent(event);
+    const point = pointFromEvent(event);
+    lastPointRef.current = point;
+    scratchBetween(point, point);
   };
 
   const move = (event) => {
@@ -135,7 +167,13 @@ export default function ScratchReveal({ children, className = "" }) {
 
   return (
     <div className={`scratch-reveal ${className}`.trim()}>
-      <div className="scratch-reveal__content">{children}</div>
+      <div
+        className="scratch-reveal__content"
+        aria-live={revealed ? "polite" : "off"}
+      >
+        {children}
+      </div>
+
       {!revealed ? (
         <>
           <canvas
@@ -157,6 +195,10 @@ export default function ScratchReveal({ children, className = "" }) {
           </button>
         </>
       ) : null}
+
+      <p className="scratch-reveal__caption">
+        {revealed ? revealedText : prompt}
+      </p>
     </div>
   );
 }

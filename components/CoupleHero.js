@@ -51,8 +51,6 @@ export default function CoupleHero() {
         <p className="couple-hero__location">
           {wedding.city} <i>·</i> {wedding.state}
         </p>
-
-        <p className="couple-hero__hint">Gently scratch to reveal our wedding date</p>
       </div>
     </section>
   );

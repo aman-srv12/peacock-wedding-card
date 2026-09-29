@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { wedding } from "../data/wedding";
 
@@ -9,6 +9,17 @@ export default function InvitationCover() {
   const [dismissed, setDismissed] = useState(false);
   const { groom, bride } = wedding.couple;
 
+  useEffect(() => {
+    if (dismissed) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [dismissed]);
+
   if (dismissed) return null;
 
   return (
@@ -16,8 +27,10 @@ export default function InvitationCover() {
       type="button"
       className={`invitation-cover${opening ? " invitation-cover--opening" : ""}`}
       onClick={() => setOpening(true)}
-      onAnimationEnd={() => {
-        if (opening) setDismissed(true);
+      onAnimationEnd={(event) => {
+        if (opening && event.animationName === "invitation-open") {
+          setDismissed(true);
+        }
       }}
       aria-label="Open Aman and Ananya's wedding invitation"
     >
@@ -44,8 +57,9 @@ export default function InvitationCover() {
         <span className="invitation-cover__names">
           {groom.firstName} <i>&amp;</i> {bride.firstName}
         </span>
-        <span className="invitation-cover__date">{wedding.dateRange}</span>
-        <span className="invitation-cover__place">{wedding.city}</span>
+        <span className="invitation-cover__occasion">
+          A wedding celebration in {wedding.city}
+        </span>
 
         <span className="invitation-cover__tap">
           <i aria-hidden="true" />

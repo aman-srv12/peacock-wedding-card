@@ -2,6 +2,7 @@ import {
   Cormorant_Garamond,
   Great_Vibes,
   Manrope,
+  Noto_Serif_Devanagari,
 } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +23,13 @@ const scriptFont = Great_Vibes({
 const bodyFont = Manrope({
   subsets: ["latin"],
   variable: "--font-body-face",
+  display: "swap",
+});
+
+const devanagariFont = Noto_Serif_Devanagari({
+  subsets: ["devanagari"],
+  weight: ["400", "600"],
+  variable: "--font-devanagari-face",
   display: "swap",
 });
 
@@ -63,7 +71,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${displayFont.variable} ${scriptFont.variable} ${bodyFont.variable}`}
+        className={`${displayFont.variable} ${scriptFont.variable} ${bodyFont.variable} ${devanagariFont.variable}`}
       >
         {children}
       </body>
