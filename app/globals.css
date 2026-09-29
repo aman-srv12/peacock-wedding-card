@@ -843,3 +843,171 @@ button {
     order: -1;
   }
 }
+
+/* Poster-style Indian wedding event cards */
+.event-card--poster {
+  grid-template-columns: minmax(0, 0.92fr) minmax(22rem, 1.08fr);
+  min-height: 39rem;
+  border-radius: 1.25rem;
+}
+
+.event-poster__art {
+  position: relative;
+  min-height: 39rem;
+  overflow: hidden;
+}
+
+.event-poster__art--sangeet {
+  background:
+    radial-gradient(circle at 50% 22%, rgb(217 181 96 / 10%), transparent 16rem),
+    linear-gradient(180deg, #17234e, #21163f 58%, #34193d);
+}
+
+.event-poster__art > img {
+  position: absolute;
+  inset: auto 4% 0;
+  width: 92%;
+  height: 89%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.event-poster__floral-roof {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  height: 7rem;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.event-poster__floral-roof span {
+  width: 1.2rem;
+  height: 6.8rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 12%, #ef7b9c 0 0.28rem, transparent 0.32rem),
+    radial-gradient(circle at 50% 35%, #f4eee3 0 0.28rem, transparent 0.32rem),
+    radial-gradient(circle at 50% 58%, #ef7b9c 0 0.28rem, transparent 0.32rem),
+    radial-gradient(circle at 50% 81%, #f4eee3 0 0.28rem, transparent 0.32rem);
+  filter: drop-shadow(0 4px 6px rgb(0 0 0 / 10%));
+}
+
+.event-poster__art-caption {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.1rem;
+  left: 1.5rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.62rem;
+  color: rgb(255 248 230 / 76%);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.event-poster__art-caption i {
+  color: #e0bd6a;
+  font-size: 0.45rem;
+  font-style: normal;
+}
+
+.event-poster__panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+}
+
+.event-poster__panel--sangeet {
+  background:
+    radial-gradient(circle at 50% 32%, rgb(201 158 73 / 10%), transparent 14rem),
+    linear-gradient(180deg, #fffdf8 0%, #faf1e3 100%);
+}
+
+.event-poster__frame {
+  position: relative;
+  width: min(100%, 34rem);
+  padding: clamp(2.6rem, 5vw, 4.4rem) clamp(2rem, 4.5vw, 3.8rem);
+  border: 1px solid rgb(194 145 54 / 34%);
+  background: rgb(255 253 248 / 88%);
+  box-shadow:
+    inset 0 0 0 7px rgb(255 255 255 / 38%),
+    inset 0 0 0 8px rgb(194 145 54 / 12%);
+}
+
+.event-poster__frame::before,
+.event-poster__frame::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  color: #c49742;
+  font-size: 0.68rem;
+  transform: translateX(-50%);
+}
+
+.event-poster__frame::before {
+  top: 1.05rem;
+}
+
+.event-poster__frame::after {
+  bottom: 1.05rem;
+}
+
+.event-poster__invite {
+  margin: 0.7rem 0 0;
+  color: #6f6c65;
+  font-family: var(--display-font);
+  font-size: 0.96rem;
+  font-style: italic;
+}
+
+.event-card--poster .event-card__body h3,
+.event-card--poster h3 {
+  margin-top: 0.4rem;
+  color: #123e45;
+  font-size: clamp(3.1rem, 5vw, 4.8rem);
+}
+
+.event-card--poster .event-card__copy {
+  max-width: 29rem;
+  font-size: 1.04rem;
+}
+
+.event-card__details--poster {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+@media (max-width: 760px) {
+  .event-card--poster {
+    grid-template-columns: 1fr;
+  }
+
+  .event-poster__art {
+    min-height: 31rem;
+  }
+
+  .event-poster__panel {
+    padding: 1rem;
+  }
+
+  .event-poster__frame {
+    padding: 2.8rem 1.45rem 3rem;
+    text-align: center;
+  }
+
+  .event-poster__frame .event-card__divider,
+  .event-poster__frame .event-card__copy {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .event-card__details--poster {
+    text-align: left;
+  }
+}
