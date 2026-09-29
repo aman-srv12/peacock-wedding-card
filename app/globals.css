@@ -223,10 +223,10 @@ button {
   display: grid;
   place-content: center;
   justify-items: center;
-  gap: 0.16em;
-  padding-top: 0.02em;
+  gap: 0.2em;
+  padding-top: 0;
   color: var(--date-blue);
-  font-family: var(--date-font);
+  font-family: var(--display-font);
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
@@ -235,23 +235,23 @@ button {
 .date-frame__date strong,
 .date-frame__date span {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .date-frame__date strong {
-  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(1.02rem, 2.15vw, 1.38rem);
+  letter-spacing: 0.06em;
 }
 
 .date-frame__date span:first-of-type {
-  font-size: clamp(1.5rem, 3.35vw, 2.1rem);
-  letter-spacing: 0.055em;
+  font-size: clamp(1.18rem, 2.55vw, 1.62rem);
+  letter-spacing: 0.045em;
 }
 
 .date-frame__date span:last-of-type {
-  margin-top: 0.05em;
-  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
-  letter-spacing: 0.1em;
+  margin-top: 0.02em;
+  font-size: clamp(0.98rem, 2.05vw, 1.3rem);
+  letter-spacing: 0.08em;
 }
 
 .scratch-oval__canvas {
@@ -444,15 +444,15 @@ button {
   }
 
   .date-frame__date strong {
-    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+    font-size: clamp(0.94rem, 4.35vw, 1.16rem);
   }
 
   .date-frame__date span:first-of-type {
-    font-size: clamp(1.3rem, 6.2vw, 1.68rem);
+    font-size: clamp(1.08rem, 4.9vw, 1.34rem);
   }
 
   .date-frame__date span:last-of-type {
-    font-size: clamp(1.12rem, 5.25vw, 1.45rem);
+    font-size: clamp(0.9rem, 4.05vw, 1.08rem);
   }
 
   .desktop-break {
