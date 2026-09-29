@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 980" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="380" y1="0" x2="380" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF1A8"/>
+      <stop offset=".52" stop-color="#F8D34F"/>
+      <stop offset="1" stop-color="#E9A52B"/>
+    </linearGradient>
+    <linearGradient id="kurta" x1="235" y1="444" x2="235" y2="805" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7D7"/>
+      <stop offset="1" stop-color="#E5E0CC"/>
+    </linearGradient>
+    <linearGradient id="lehenga" x1="498" y1="470" x2="500" y2="882" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD52D"/>
+      <stop offset="1" stop-color="#E79B16"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="110" y1="100" x2="666" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4B51E"/>
+      <stop offset=".5" stop-color="#C37A10"/>
+      <stop offset="1" stop-color="#8C5410"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="760" height="980" rx="34" fill="url(#bg)"/>
+
+  <g opacity=".24" fill="#FFF9DC">
+    <circle cx="94" cy="154" r="102"/>
+    <circle cx="676" cy="194" r="122"/>
+  </g>
+
+  <g stroke="#C5710E" stroke-width="3" opacity=".42">
+    <path d="M40 912C163 804 259 769 380 769C501 769 597 804 720 912"/>
+    <path d="M94 940C199 858 282 835 380 835C478 835 561 858 666 940"/>
+  </g>
+
+  <!-- floral toran -->
+  <g>
+    <path d="M28 57C170 88 263 102 380 99C497 102 590 88 732 57" stroke="#5C823E" stroke-width="18" stroke-linecap="round"/>
+    <g fill="#F59B1D">
+      <circle cx="72" cy="68" r="20"/><circle cx="118" cy="79" r="17"/><circle cx="164" cy="88" r="20"/>
+      <circle cx="215" cy="95" r="17"/><circle cx="268" cy="100" r="20"/><circle cx="325" cy="103" r="17"/>
+      <circle cx="380" cy="104" r="21"/><circle cx="435" cy="103" r="17"/><circle cx="492" cy="100" r="20"/>
+      <circle cx="545" cy="95" r="17"/><circle cx="596" cy="88" r="20"/><circle cx="642" cy="79" r="17"/><circle cx="688" cy="68" r="20"/>
+    </g>
+    <g fill="#FFF2D4">
+      <circle cx="95" cy="62" r="9"/><circle cx="191" cy="84" r="9"/><circle cx="298" cy="96" r="9"/>
+      <circle cx="410" cy="99" r="9"/><circle cx="519" cy="94" r="9"/><circle cx="618" cy="80" r="9"/>
+    </g>
+  </g>
+
+  <!-- hanging marigolds -->
+  <g stroke="#E99A17" stroke-width="4" stroke-linecap="round">
+    <path d="M115 102v170"/><path d="M205 112v210"/><path d="M555 112v210"/><path d="M645 102v170"/>
+  </g>
+  <g fill="#F6B31B">
+    <circle cx="115" cy="142" r="12"/><circle cx="115" cy="186" r="12"/><circle cx="115" cy="230" r="12"/>
+    <circle cx="205" cy="158" r="12"/><circle cx="205" cy="204" r="12"/><circle cx="205" cy="250" r="12"/><circle cx="205" cy="296" r="12"/>
+    <circle cx="555" cy="158" r="12"/><circle cx="555" cy="204" r="12"/><circle cx="555" cy="250" r="12"/><circle cx="555" cy="296" r="12"/>
+    <circle cx="645" cy="142" r="12"/><circle cx="645" cy="186" r="12"/><circle cx="645" cy="230" r="12"/>
+  </g>
+
+  <!-- mandap bench -->
+  <g opacity=".92">
+    <rect x="204" y="652" width="352" height="104" rx="24" fill="#B94E45"/>
+    <rect x="226" y="626" width="126" height="72" rx="22" fill="#EE6289"/>
+    <rect x="408" y="626" width="126" height="72" rx="22" fill="#EE6289"/>
+    <path d="M210 756h340l-18 46H228l-18-46Z" fill="#7D3B31"/>
+  </g>
+
+  <!-- Groom -->
+  <g>
+    <ellipse cx="292" cy="358" rx="64" ry="72" fill="#DCA27A"/>
+    <path d="M231 353c2-74 32-108 73-108 46 0 72 35 68 98-20-18-44-28-71-28-28 0-51 8-70 25Z" fill="#18191D"/>
+    <path d="M255 418c17 18 39 27 62 25 20-1 36-9 47-23l-9 60-84 2-16-64Z" fill="#DCA27A"/>
+    <path d="M238 473c30-19 89-18 120 0l20 252H214l24-252Z" fill="url(#kurta)"/>
+    <path d="M238 478v247M358 478v247" stroke="#D8C9A7" stroke-width="3" opacity=".7"/>
+    <path d="M270 473v252" stroke="#D3AB46" stroke-width="5"/>
+    <circle cx="270" cy="532" r="5" fill="#D3AB46"/><circle cx="270" cy="574" r="5" fill="#D3AB46"/><circle cx="270" cy="616" r="5" fill="#D3AB46"/>
+    <path d="M227 490 185 622l37 15 48-122M366 491l45 130-38 15-47-120" fill="#F0C01F"/>
+    <path d="M227 725h64l-7 132h-57V725ZM300 725h65l5 132h-58L300 725Z" fill="#F5F1E5"/>
+  </g>
+
+  <!-- Bride -->
+  <g>
+    <ellipse cx="463" cy="376" rx="63" ry="70" fill="#E4A97F"/>
+    <path d="M404 381c-5-68 18-111 66-114 48-3 78 40 72 114-23-24-47-36-71-37-23-1-45 10-67 37Z" fill="#251A18"/>
+    <path d="M421 437c16 17 38 26 60 24 19-2 34-10 44-23l-8 58-80 2-16-61Z" fill="#E4A97F"/>
+    <path d="M409 489c31-17 87-17 116 0l28 150H381l28-150Z" fill="#F5BE1F"/>
+    <path d="M376 631c34-17 157-17 192 0l44 226H332l44-226Z" fill="url(#lehenga)"/>
+    <path d="M412 498c12 44 34 87 66 129M522 498c-12 44-34 87-66 129" stroke="#FFF1A5" stroke-width="3" opacity=".72"/>
+    <path d="M386 518 349 629l35 14 48-106M535 518l39 108-35 15-47-104" fill="#F7C927"/>
+    <path d="M512 304c42 35 58 85 55 151-2 46 3 96 25 143-34-24-64-58-79-104-18-55-19-118-1-190Z" fill="#E6A915" opacity=".78"/>
+    <g fill="#F26D4E">
+      <circle cx="398" cy="689" r="5"/><circle cx="436" cy="732" r="5"/><circle cx="479" cy="678" r="5"/><circle cx="526" cy="739" r="5"/>
+      <circle cx="373" cy="785" r="5"/><circle cx="458" cy="812" r="5"/><circle cx="546" cy="798" r="5"/>
+    </g>
+    <g fill="#FFF4B0">
+      <circle cx="420" cy="672" r="4"/><circle cx="461" cy="714" r="4"/><circle cx="504" cy="664" r="4"/>
+    </g>
+  </g>
+
+  <!-- haldi bowls / florals -->
+  <g>
+    <ellipse cx="380" cy="857" rx="116" ry="36" fill="#9C6315" opacity=".25"/>
+    <ellipse cx="380" cy="844" rx="91" ry="42" fill="#B97817"/>
+    <ellipse cx="380" cy="837" rx="72" ry="30" fill="#E0AA35"/>
+    <ellipse cx="380" cy="831" rx="53" ry="20" fill="#F7D957"/>
+    <circle cx="362" cy="826" r="8" fill="#F59A1E"/>
+    <circle cx="390" cy="824" r="9" fill="#FFE471"/>
+    <circle cx="410" cy="836" r="7" fill="#EF8C17"/>
+  </g>
+
+  <g fill="#6F8B50">
+    <ellipse cx="82" cy="836" rx="27" ry="74" transform="rotate(-28 82 836)"/>
+    <ellipse cx="678" cy="836" rx="27" ry="74" transform="rotate(28 678 836)"/>
+  </g>
+  <g fill="#F39B1B">
+    <circle cx="106" cy="824" r="24"/><circle cx="137" cy="868" r="19"/><circle cx="654" cy="824" r="24"/><circle cx="623" cy="868" r="19"/>
+  </g>
+</svg>

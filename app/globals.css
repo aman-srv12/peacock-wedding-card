@@ -1011,3 +1011,93 @@ button {
     text-align: left;
   }
 }
+
+.event-poster__art--haldi {
+  background:
+    radial-gradient(circle at 18% 18%, rgb(255 255 255 / 32%), transparent 14rem),
+    radial-gradient(circle at 82% 32%, rgb(191 217 210 / 25%), transparent 14rem),
+    linear-gradient(180deg, #fff1a8, #f6ce49 54%, #e6a32a);
+}
+
+.event-poster__art--haldi > img {
+  position: absolute;
+  inset: auto 3% 0;
+  width: 94%;
+  height: 92%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.event-poster__marigold-roof {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  height: 7.25rem;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.event-poster__marigold-roof span {
+  width: 1.15rem;
+  height: 7rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 10%, #f49a1a 0 0.34rem, transparent 0.38rem),
+    radial-gradient(circle at 50% 31%, #f6ba24 0 0.34rem, transparent 0.38rem),
+    radial-gradient(circle at 50% 52%, #ef8e16 0 0.34rem, transparent 0.38rem),
+    radial-gradient(circle at 50% 73%, #f6ba24 0 0.34rem, transparent 0.38rem),
+    radial-gradient(circle at 50% 94%, #ef8e16 0 0.34rem, transparent 0.38rem);
+  filter: drop-shadow(0 4px 7px rgb(122 76 8 / 10%));
+}
+
+.event-poster__art-caption--haldi {
+  color: rgb(87 58 12 / 72%);
+}
+
+.event-poster__art-caption--haldi i {
+  color: #9b6514;
+}
+
+.event-poster__panel--haldi {
+  background:
+    radial-gradient(circle at 74% 18%, rgb(191 217 210 / 21%), transparent 13rem),
+    radial-gradient(circle at 24% 82%, rgb(241 179 42 / 14%), transparent 14rem),
+    linear-gradient(180deg, #fffaf0, #fdf0d3);
+}
+
+.event-poster__frame--haldi {
+  border-color: rgb(193 126 24 / 36%);
+  background:
+    linear-gradient(rgb(255 251 239 / 90%), rgb(255 251 239 / 90%)),
+    radial-gradient(circle at center, rgb(244 187 45 / 15%), transparent 70%);
+  box-shadow:
+    inset 0 0 0 7px rgb(255 255 255 / 36%),
+    inset 0 0 0 8px rgb(193 126 24 / 13%);
+}
+
+.event-poster__frame--haldi::before,
+.event-poster__frame--haldi::after,
+.event-card--haldi .event-card__date {
+  color: #b37414;
+}
+
+.event-card--haldi.event-card--poster {
+  border-color: rgb(199 137 29 / 32%);
+}
+
+.event-card--haldi.event-card--poster h3 {
+  color: #6f4a13;
+}
+
+.event-card--haldi.event-card--poster .event-card__divider {
+  color: #c18420;
+}
+
+.event-card--haldi.event-card--poster .event-card__details div {
+  border-top-color: rgb(193 132 29 / 28%);
+}
+
+.event-card--haldi.event-card--poster .event-card__details dt {
+  color: #8f6a26;
+}
