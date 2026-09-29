@@ -1,6 +1,7 @@
 import CoupleHero from "../components/CoupleHero";
 import GaneshWelcome from "../components/GaneshWelcome";
 import InvitationCover from "../components/InvitationCover";
+import WeddingFestivities from "../components/WeddingFestivities";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <InvitationCover />
       <CoupleHero />
       <GaneshWelcome />
+      <WeddingFestivities />
     </main>
   );
 }

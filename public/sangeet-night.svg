@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1120" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="130" y1="30" x2="805" y2="1062" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101A48"/>
+      <stop offset=".45" stop-color="#34235C"/>
+      <stop offset="1" stop-color="#6F305C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(460 302) rotate(90) scale(430 520)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D98D" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#F4D98D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="125" y1="946" x2="790" y2="349" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B67C2E"/>
+      <stop offset=".45" stop-color="#E2BE68"/>
+      <stop offset="1" stop-color="#F3DA94"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="1120" rx="32" fill="url(#sky)"/>
+  <rect width="920" height="1120" rx="32" fill="url(#glow)"/>
+
+  <circle cx="735" cy="176" r="66" fill="#F7E6B2" opacity=".94"/>
+  <circle cx="762" cy="158" r="66" fill="#19204A"/>
+
+  <g opacity=".55" fill="#E6C978">
+    <circle cx="108" cy="108" r="3"/>
+    <circle cx="167" cy="163" r="2"/>
+    <circle cx="235" cy="87" r="2.5"/>
+    <circle cx="328" cy="141" r="2"/>
+    <circle cx="575" cy="99" r="2.5"/>
+    <circle cx="650" cy="130" r="2"/>
+    <circle cx="807" cy="104" r="3"/>
+    <circle cx="850" cy="214" r="2"/>
+  </g>
+
+  <g opacity=".16" stroke="#F0D38D" stroke-width="2">
+    <path d="M0 384h920"/>
+    <path d="M0 416h920"/>
+  </g>
+
+  <g transform="translate(0 82)">
+    <path d="M128 702V393c0-108 87-195 195-195h274c108 0 195 87 195 195v309" stroke="url(#gold)" stroke-width="5"/>
+    <path d="M186 702V425c0-78 63-141 141-141h266c78 0 141 63 141 141v277" stroke="#E6CA82" stroke-opacity=".52" stroke-width="2"/>
+    <path d="M458 205c-49 28-84 80-84 142v355h168V347c0-62-35-114-84-142Z" stroke="#E8CC82" stroke-opacity=".72" stroke-width="2"/>
+    <path d="M128 486H63v216h65M792 486h65v216h-65" stroke="#D9B663" stroke-opacity=".62" stroke-width="3"/>
+    <path d="M63 535h65M792 535h65" stroke="#D9B663" stroke-opacity=".38" stroke-width="2"/>
+  </g>
+
+  <g opacity=".9">
+    <ellipse cx="460" cy="958" rx="320" ry="92" fill="#0B102F" opacity=".48"/>
+    <ellipse cx="460" cy="934" rx="238" ry="48" fill="#D9AE5C" opacity=".09" filter="url(#soft)"/>
+  </g>
+
+  <g stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M339 752c-27 49-34 101-20 157"/>
+    <path d="M339 752c-31 31-67 53-108 66"/>
+    <path d="M335 770c27 10 48 28 64 53"/>
+    <circle cx="337" cy="710" r="32" fill="#C99445" stroke="none"/>
+    <path d="M329 744c28 15 46 43 48 75l7 104"/>
+    <path d="M343 805l-48 107"/>
+    <path d="M362 810l54 98"/>
+
+    <path d="M580 755c28 46 37 98 24 154"/>
+    <path d="M580 755c35 27 73 46 115 55"/>
+    <path d="M585 774c-28 11-49 31-63 57"/>
+    <circle cx="579" cy="712" r="32" fill="#C99445" stroke="none"/>
+    <path d="M588 745c-26 17-42 45-43 77l-3 104"/>
+    <path d="M569 811l45 105"/>
+    <path d="M548 811l-57 97"/>
+  </g>
+
+  <g transform="translate(451 800)" opacity=".95">
+    <ellipse cx="0" cy="56" rx="72" ry="46" fill="#BE8A3E"/>
+    <ellipse cx="0" cy="56" rx="54" ry="32" fill="#E1C276"/>
+    <path d="M-73 56h146" stroke="#5A2B54" stroke-width="5"/>
+    <path d="M-31 18v76M31 18v76" stroke="#5A2B54" stroke-width="4"/>
+    <path d="M-95 15 95 98M-95 98 95 15" stroke="#E6C779" stroke-width="4" opacity=".7"/>
+  </g>
+
+  <g fill="#E6C779">
+    <circle cx="181" cy="291" r="4"/>
+    <circle cx="232" cy="341" r="3"/>
+    <circle cx="684" cy="326" r="4"/>
+    <circle cx="737" cy="370" r="3"/>
+  </g>
+
+  <path d="M122 1001c103-40 212-61 338-61s235 21 338 61" stroke="#D8B15F" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M175 1019c86-27 181-42 285-42s199 15 285 42" stroke="#D8B15F" stroke-opacity=".24" stroke-width="2"/>
+</svg>
