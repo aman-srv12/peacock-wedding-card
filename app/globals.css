@@ -261,3 +261,198 @@ a {
     scroll-behavior: auto;
   }
 }
+
+/* Ganesh welcome */
+.invitation {
+  overflow: hidden;
+}
+
+.ganesh-welcome {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+  color: var(--ivory-50);
+  background:
+    radial-gradient(circle at 50% 35%, rgb(29 90 73 / 55%), transparent 28rem),
+    linear-gradient(155deg, var(--peacock-950), var(--peacock-900) 55%, #08242d);
+}
+
+.ganesh-welcome::before,
+.ganesh-welcome::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  z-index: -1;
+  border: 1px solid rgb(199 164 90 / 42%);
+  pointer-events: none;
+}
+
+.ganesh-welcome::after {
+  inset: 1.45rem;
+  border-color: rgb(199 164 90 / 15%);
+}
+
+.ganesh-welcome__glow {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  z-index: -1;
+  width: min(78vw, 28rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(199 164 90 / 16%), transparent 68%);
+  transform: translateX(-50%);
+  animation: welcome-breathe 5s ease-in-out infinite;
+}
+
+.ganesh-welcome__content {
+  width: min(100%, 34rem);
+  text-align: center;
+  animation: welcome-rise 1.25s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.ganesh-welcome__om {
+  margin: 0 0 0.5rem;
+  color: var(--gold-400);
+  font-family: var(--display-font);
+  font-size: 1.25rem;
+}
+
+.ganesh-welcome__mark {
+  width: clamp(8rem, 31vw, 11rem);
+  margin: 0 auto 1.25rem;
+  filter: drop-shadow(0 12px 24px rgb(0 0 0 / 18%));
+}
+
+.ganesh-welcome__mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ganesh-welcome__invocation {
+  margin: 0;
+  color: var(--gold-200);
+  font-family: var(--display-font);
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  letter-spacing: 0.06em;
+}
+
+.ganesh-welcome__title {
+  margin: 0.6rem 0 0;
+  color: var(--ivory-50);
+  font-family: var(--display-font);
+  font-size: clamp(2.4rem, 10vw, 4.75rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.ganesh-welcome__divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(16rem, 70%);
+  margin: 1.25rem auto;
+  color: var(--gold-500);
+}
+
+.ganesh-welcome__divider span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.ganesh-welcome__divider span:last-child {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.ganesh-welcome__divider i {
+  font-size: 0.45rem;
+  font-style: normal;
+  transform: rotate(45deg);
+}
+
+.ganesh-welcome__verse {
+  margin: 0;
+  color: var(--gold-200);
+  font-family: var(--display-font);
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.ganesh-welcome__blessing {
+  max-width: 27rem;
+  margin: 0.65rem auto 0;
+  color: rgb(255 250 240 / 72%);
+  font-family: var(--display-font);
+  font-size: clamp(0.9rem, 3.3vw, 1.05rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.ganesh-welcome__scroll {
+  display: grid;
+  width: 1.25rem;
+  height: 2rem;
+  place-items: start center;
+  margin: 2rem auto 0;
+  padding-top: 0.35rem;
+  border: 1px solid rgb(234 217 172 / 45%);
+  border-radius: 999px;
+}
+
+.ganesh-welcome__scroll i {
+  width: 2px;
+  height: 0.35rem;
+  border-radius: 2px;
+  background: var(--gold-400);
+  animation: welcome-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes welcome-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes welcome-breathe {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(0.96); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.04); }
+}
+
+@keyframes welcome-scroll {
+  0% { opacity: 0; transform: translateY(0); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(0.7rem); }
+}
+
+@media (max-width: 520px) {
+  .ganesh-welcome {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .ganesh-welcome::before {
+    inset: 0.65rem;
+  }
+
+  .ganesh-welcome::after {
+    inset: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ganesh-welcome__content,
+  .ganesh-welcome__glow,
+  .ganesh-welcome__scroll i {
+    animation: none;
+  }
+}
