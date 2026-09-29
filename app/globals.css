@@ -726,6 +726,27 @@ button {
   line-height: 1.45;
 }
 
+.event-card__detail--address a {
+  display: inline;
+  color: inherit;
+  text-decoration-color: rgb(181 138 54 / 42%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.event-card__detail--address a:hover {
+  color: #173f45;
+  text-decoration-color: var(--gold-600);
+}
+
+.event-card__detail--address a span {
+  display: inline-block;
+  margin-left: 0.38rem;
+  color: var(--gold-600);
+  font-size: 0.8em;
+  transform: translateY(-0.05em);
+}
+
 @media (max-width: 760px) {
   .festivities {
     padding-inline: 1rem;

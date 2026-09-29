@@ -60,7 +60,17 @@ export default function WeddingFestivities() {
               </div>
               <div className="event-card__detail--address">
                 <dt>Address</dt>
-                <dd>{wedding.venue.address}</dd>
+                <dd>
+                  <a
+                    href={wedding.venue.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${wedding.venue.name} in Google Maps`}
+                  >
+                    {wedding.venue.address}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </dd>
               </div>
             </dl>
           </div>
