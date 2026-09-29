@@ -2,13 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const SCRATCH_THRESHOLD = 0.42;
+const SCRATCH_THRESHOLD = 0.36;
 
-export default function ScratchReveal({
-  children,
-  className = "",
-  prompt = "gently scratch to reveal",
-}) {
+function seededRandom(seed) {
+  let value = seed;
+  return () => {
+    value = (value * 9301 + 49297) % 233280;
+    return value / 233280;
+  };
+}
+
+export default function ScratchReveal({ className = "" }) {
   const canvasRef = useRef(null);
   const drawingRef = useRef(false);
   const lastPointRef = useRef(null);
@@ -16,16 +20,14 @@ export default function ScratchReveal({
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    if (revealed) return undefined;
-
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
 
-    const paint = () => {
+    const paintCover = () => {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = Math.max(1, Math.floor(rect.width));
-      const height = Math.max(1, Math.floor(rect.height));
+      const width = Math.max(1, Math.round(rect.width));
+      const height = Math.max(1, Math.round(rect.height));
 
       canvas.width = width * dpr;
       canvas.height = height * dpr;
@@ -36,50 +38,50 @@ export default function ScratchReveal({
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
       context.globalCompositeOperation = "source-over";
 
-      const foil = context.createLinearGradient(0, 0, width, height);
-      foil.addColorStop(0, "#f7ecd0");
-      foil.addColorStop(0.22, "#d7b76d");
-      foil.addColorStop(0.48, "#f2dfaa");
-      foil.addColorStop(0.72, "#c99e4a");
-      foil.addColorStop(1, "#ead5a2");
-      context.fillStyle = foil;
+      const gradient = context.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, "#167b79");
+      gradient.addColorStop(0.46, "#176f79");
+      gradient.addColorStop(1, "#1b5b78");
+      context.fillStyle = gradient;
       context.fillRect(0, 0, width, height);
 
-      context.globalAlpha = 0.16;
-      context.strokeStyle = "#ffffff";
-      context.lineWidth = 1;
-      for (let x = -height; x < width + height; x += 13) {
+      const random = seededRandom(28);
+      const dotCount = Math.max(240, Math.round((width * height) / 145));
+
+      for (let index = 0; index < dotCount; index += 1) {
+        const x = random() * width;
+        const y = random() * height;
+        const radius = 0.55 + random() * 1.65;
+        const alpha = 0.18 + random() * 0.48;
+
         context.beginPath();
-        context.moveTo(x, 0);
-        context.lineTo(x + height, height);
-        context.stroke();
+        context.fillStyle =
+          index % 4 === 0
+            ? `rgba(244, 216, 119, ${alpha})`
+            : `rgba(203, 172, 74, ${alpha})`;
+        context.arc(x, y, radius, 0, Math.PI * 2);
+        context.fill();
       }
 
-      context.globalAlpha = 0.2;
-      context.strokeStyle = "#0d5960";
-      context.lineWidth = 1.25;
-      const cx = width / 2;
-      const cy = height / 2;
-      context.beginPath();
-      context.ellipse(cx, cy, 28, 14, 0, 0, Math.PI * 2);
-      context.stroke();
-      context.beginPath();
-      context.ellipse(cx, cy, 10, 7, 0, 0, Math.PI * 2);
-      context.stroke();
-
-      context.globalAlpha = 1;
+      context.fillStyle = "rgba(255, 250, 238, 0.9)";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.font = `italic 500 ${Math.max(12, Math.min(16, width / 12.5))}px Georgia, serif`;
+      context.fillText("gently scratch to reveal", width / 2, height / 2);
     };
 
-    paint();
+    paintCover();
 
     const observer =
-      typeof ResizeObserver !== "undefined" ? new ResizeObserver(paint) : null;
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(paintCover)
+        : null;
     observer?.observe(canvas);
 
     return () => observer?.disconnect();
-  }, [revealed]);
+  }, []);
 
-  const getPoint = (event) => {
+  const pointFromEvent = (event) => {
     const rect = canvasRef.current.getBoundingClientRect();
     return {
       x: event.clientX - rect.left,
@@ -87,17 +89,20 @@ export default function ScratchReveal({
     };
   };
 
-  const scratchBetween = (from, to) => {
+  const eraseBetween = (from, to) => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const context = canvas.getContext("2d", { willReadFrequently: true });
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = canvas.getBoundingClientRect().width;
 
     context.save();
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
     context.globalCompositeOperation = "destination-out";
     context.lineCap = "round";
     context.lineJoin = "round";
-    context.lineWidth = Math.max(34, canvas.getBoundingClientRect().width * 0.1);
+    context.lineWidth = Math.max(28, width * 0.16);
     context.beginPath();
     context.moveTo(from.x, from.y);
     context.lineTo(to.x, to.y);
@@ -114,80 +119,85 @@ export default function ScratchReveal({
 
   const checkProgress = () => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || revealed) return;
 
     const context = canvas.getContext("2d", { willReadFrequently: true });
-    const { data } = context.getImageData(0, 0, canvas.width, canvas.height);
+    const { width, height } = canvas;
+    const data = context.getImageData(0, 0, width, height).data;
+    const step = Math.max(10, Math.floor(width / 38));
 
-    let clear = 0;
-    let samples = 0;
-    for (let index = 3; index < data.length; index += 96) {
-      samples += 1;
-      if (data[index] < 32) clear += 1;
+    let cleared = 0;
+    let sampled = 0;
+
+    for (let y = step / 2; y < height; y += step) {
+      for (let x = step / 2; x < width; x += step) {
+        const nx = (x - width / 2) / (width / 2);
+        const ny = (y - height / 2) / (height / 2);
+
+        if (nx * nx + ny * ny > 1) continue;
+
+        sampled += 1;
+        const alpha = data[(Math.floor(y) * width + Math.floor(x)) * 4 + 3];
+        if (alpha < 36) cleared += 1;
+      }
     }
 
-    if (samples > 0 && clear / samples >= SCRATCH_THRESHOLD) {
+    if (sampled > 0 && cleared / sampled >= SCRATCH_THRESHOLD) {
       setRevealed(true);
     }
   };
 
-  const start = (event) => {
+  const startScratch = (event) => {
     if (revealed) return;
+
     event.currentTarget.setPointerCapture?.(event.pointerId);
     drawingRef.current = true;
-    const point = getPoint(event);
+
+    const point = pointFromEvent(event);
     lastPointRef.current = point;
-    scratchBetween(point, point);
+    eraseBetween(point, point);
   };
 
-  const move = (event) => {
+  const moveScratch = (event) => {
     if (!drawingRef.current || revealed) return;
-    event.preventDefault();
 
-    const nextPoint = getPoint(event);
+    event.preventDefault();
+    const nextPoint = pointFromEvent(event);
     const previousPoint = lastPointRef.current || nextPoint;
-    scratchBetween(previousPoint, nextPoint);
+
+    eraseBetween(previousPoint, nextPoint);
     lastPointRef.current = nextPoint;
 
     moveCountRef.current += 1;
     if (moveCountRef.current % 7 === 0) checkProgress();
   };
 
-  const stop = () => {
+  const stopScratch = () => {
     if (!drawingRef.current) return;
+
     drawingRef.current = false;
     lastPointRef.current = null;
     checkProgress();
   };
 
   return (
-    <div className={`scratch-reveal ${className}`.trim()}>
-      <div className="scratch-reveal__content" aria-live={revealed ? "polite" : "off"}>
-        {children}
-      </div>
-
-      {!revealed ? (
-        <canvas
-          ref={canvasRef}
-          className="scratch-reveal__canvas"
-          onPointerDown={start}
-          onPointerMove={move}
-          onPointerUp={stop}
-          onPointerCancel={stop}
-          onPointerLeave={stop}
-          aria-hidden="true"
-        />
-      ) : null}
-
-      <button
-        type="button"
-        className="scratch-reveal__prompt"
-        onClick={() => setRevealed(true)}
-        aria-label="Reveal our wedding date"
-      >
-        <span aria-hidden="true">✦</span>
-        {revealed ? "our wedding date" : prompt}
-      </button>
-    </div>
+    <canvas
+      ref={canvasRef}
+      className={`scratch-oval__canvas${revealed ? " scratch-oval__canvas--revealed" : ""} ${className}`.trim()}
+      role="button"
+      tabIndex={0}
+      aria-label="Scratch to reveal our wedding date. Press Enter or Space to reveal it instantly."
+      onPointerDown={startScratch}
+      onPointerMove={moveScratch}
+      onPointerUp={stopScratch}
+      onPointerCancel={stopScratch}
+      onPointerLeave={stopScratch}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setRevealed(true);
+        }
+      }}
+    />
   );
 }

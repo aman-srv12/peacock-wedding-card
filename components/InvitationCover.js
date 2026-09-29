@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+const INTRO_VIDEO =
+  "https://shubhinvite.vercel.app/themes/peacock/intro.mp4";
 
 export default function InvitationCover() {
-  const [opening, setOpening] = useState(false);
+  const videoRef = useRef(null);
+  const [started, setStarted] = useState(false);
+  const [finishing, setFinishing] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
@@ -18,55 +22,55 @@ export default function InvitationCover() {
     };
   }, [dismissed]);
 
+  const openInvitation = async () => {
+    if (started || finishing) return;
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    setStarted(true);
+    video.currentTime = 0;
+
+    try {
+      await video.play();
+    } catch {
+      setStarted(false);
+    }
+  };
+
   if (dismissed) return null;
 
   return (
-    <button
-      type="button"
-      className={`invitation-cover${opening ? " invitation-cover--opening" : ""}`}
-      onClick={() => {
-        if (!opening) setOpening(true);
-      }}
+    <div
+      className={`invitation-intro${started ? " invitation-intro--playing" : ""}${finishing ? " invitation-intro--finishing" : ""}`}
       onAnimationEnd={(event) => {
         if (
-          opening &&
+          finishing &&
           event.currentTarget === event.target &&
-          event.animationName === "cover-exit"
+          event.animationName === "intro-fade-out"
         ) {
           setDismissed(true);
         }
       }}
-      aria-label="Open Aman and Ananya's wedding invitation"
     >
-      <span className="invitation-cover__wash" aria-hidden="true" />
-      <span className="invitation-cover__frame" aria-hidden="true" />
+      <video
+        ref={videoRef}
+        className="invitation-intro__video"
+        src={INTRO_VIDEO}
+        preload="auto"
+        playsInline
+        onEnded={() => setFinishing(true)}
+      />
 
-      <span className="invitation-cover__feather invitation-cover__feather--left" aria-hidden="true">
-        <Image src="/peacock-feather.svg" alt="" width={180} height={430} priority />
-      </span>
-      <span className="invitation-cover__feather invitation-cover__feather--right" aria-hidden="true">
-        <Image src="/peacock-feather.svg" alt="" width={180} height={430} />
-      </span>
-
-      <span className="invitation-cover__content">
-        <span className="invitation-cover__crest" aria-hidden="true">
-          <Image src="/peacock-mark.svg" alt="" width={42} height={42} priority />
-        </span>
-
-        <span className="invitation-cover__eyebrow">You&apos;re invited</span>
-
-        <span className="invitation-cover__ornament" aria-hidden="true">
-          <i />
-          <b>✦</b>
-          <i />
-        </span>
-
-        <span className="invitation-cover__tap">
-          <b aria-hidden="true">✧</b>
-          Tap to open
-          <b aria-hidden="true">✧</b>
-        </span>
-      </span>
-    </button>
+      <button
+        type="button"
+        className="invitation-intro__open"
+        onClick={openInvitation}
+        disabled={started}
+        aria-label="Play the invitation opening animation"
+      >
+        <span className="invitation-intro__tap">Tap to open</span>
+      </button>
+    </div>
   );
 }
