@@ -4,6 +4,7 @@ import { wedding } from "../data/wedding";
 export default function WeddingFestivities() {
   const sangeet = wedding.events.sangeet;
   const haldi = wedding.events.haldi;
+  const weddingDay = wedding.events.wedding;
 
   return (
     <section className="festivities" aria-labelledby="festivities-title">
@@ -145,6 +146,90 @@ export default function WeddingFestivities() {
                 <div>
                   <dt>Dress Code</dt>
                   <dd>{haldi.dressCode}</dd>
+                </div>
+                <div>
+                  <dt>Venue</dt>
+                  <dd>{wedding.venue.name}</dd>
+                </div>
+                <div className="event-card__detail--address">
+                  <dt>Address</dt>
+                  <dd>
+                    <a
+                      href={wedding.venue.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${wedding.venue.name} in Google Maps`}
+                    >
+                      {wedding.venue.address}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article className="event-card event-card--wedding event-card--poster">
+          <div className="event-poster__art event-poster__art--wedding">
+            <div className="event-poster__wedding-canopy" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+
+            <Image
+              src="/wedding-couple.svg"
+              alt="Stylized Indian bride and groom beneath a wedding mandap"
+              width={760}
+              height={980}
+              sizes="(max-width: 760px) 88vw, 39vw"
+            />
+
+            <div className="event-poster__art-caption event-poster__art-caption--wedding" aria-hidden="true">
+              <span>Varmala</span>
+              <i>✦</i>
+              <span>Reception</span>
+              <i>✦</i>
+              <span>Pheras</span>
+            </div>
+          </div>
+
+          <div className="event-poster__panel event-poster__panel--wedding">
+            <div className="event-poster__frame event-poster__frame--wedding">
+              <p className="event-card__date">{weddingDay.dateLabel}</p>
+              <p className="event-poster__invite">With joyful hearts, we invite you to our</p>
+              <h3>Wedding Ceremony</h3>
+
+              <div className="event-card__divider" aria-hidden="true">
+                <span />
+                <i>✦</i>
+                <span />
+              </div>
+
+              <p className="event-card__copy">
+                Join us for an evening of vows, blessings and celebration as
+                two families become one.
+              </p>
+
+              <ol className="wedding-timeline" aria-label="Wedding ceremony schedule">
+                {weddingDay.ceremonies.map((ceremony) => (
+                  <li key={ceremony.name}>
+                    <span>{ceremony.timeLabel}</span>
+                    <div>
+                      <strong>{ceremony.name}</strong>
+                      {ceremony.note ? <small>{ceremony.note}</small> : null}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <dl className="event-card__details event-card__details--poster event-card__details--wedding">
+                <div>
+                  <dt>Dress Code</dt>
+                  <dd>{weddingDay.dressCode}</dd>
                 </div>
                 <div>
                   <dt>Venue</dt>
