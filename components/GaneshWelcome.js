@@ -3,13 +3,28 @@ import Image from "next/image";
 export default function GaneshWelcome() {
   return (
     <section className="ganesh-welcome" aria-labelledby="ganesh-welcome-title">
-      <div className="ganesh-welcome__glow" aria-hidden="true" />
+      <div className="page-top-rule" aria-hidden="true" />
+      <div className="page-petals" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </div>
+
+      <div className="ganesh-welcome__corner" aria-hidden="true">
+        <Image src="/peacock-corner.svg" alt="" width={560} height={560} />
+      </div>
 
       <div className="ganesh-welcome__content">
-        <p className="ganesh-welcome__om" aria-hidden="true">ॐ</p>
+        <p className="ganesh-welcome__eyebrow">With divine blessings</p>
 
         <div className="ganesh-welcome__mark" aria-hidden="true">
-          <Image src="/ganesh-line-art.svg" alt="" width={240} height={260} priority />
+          <Image
+            src="/ganesh-line-art.svg"
+            alt=""
+            width={240}
+            height={260}
+            priority
+          />
         </div>
 
         <p className="ganesh-welcome__invocation">श्री गणेशाय नमः</p>
@@ -18,9 +33,9 @@ export default function GaneshWelcome() {
           शुभारम्भ
         </h1>
 
-        <div className="ganesh-welcome__divider" aria-hidden="true">
+        <div className="fine-divider" aria-hidden="true">
           <span />
-          <i>◆</i>
+          <i>✦</i>
           <span />
         </div>
 
@@ -28,11 +43,14 @@ export default function GaneshWelcome() {
           वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
         </p>
+
         <p className="ganesh-welcome__blessing">
-          With the blessings of Lord Ganesha, our celebrations begin.
+          With the blessings of Lord Ganesha,
+          <br className="desktop-break" /> our celebration begins.
         </p>
 
-        <span className="ganesh-welcome__scroll" aria-hidden="true">
+        <span className="ganesh-welcome__continue" aria-hidden="true">
+          Scroll to continue
           <i />
         </span>
       </div>

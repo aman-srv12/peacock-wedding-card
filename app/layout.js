@@ -1,4 +1,29 @@
+import {
+  Cormorant_Garamond,
+  Great_Vibes,
+  Manrope,
+} from "next/font/google";
 import "./globals.css";
+
+const displayFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-display-face",
+  display: "swap",
+});
+
+const scriptFont = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script-face",
+  display: "swap",
+});
+
+const bodyFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body-face",
+  display: "swap",
+});
 
 export const metadata = {
   title: {
@@ -21,8 +46,7 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
     title: "Aman & Ananya | Wedding Invitation",
-    description:
-      "Celebrate with us in Lucknow · 6–8 December 2026",
+    description: "Celebrate with us in Lucknow · 6–8 December 2026",
     siteName: "Aman & Ananya",
   },
   twitter: {
@@ -38,7 +62,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={`${displayFont.variable} ${scriptFont.variable} ${bodyFont.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

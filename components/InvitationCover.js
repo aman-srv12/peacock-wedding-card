@@ -22,20 +22,31 @@ export default function InvitationCover() {
       aria-label="Open Aman and Ananya's wedding invitation"
     >
       <span className="invitation-cover__top-rule" aria-hidden="true" />
-      <span className="invitation-cover__ornament invitation-cover__ornament--left" aria-hidden="true">
-        <Image src="/peacock-feather.svg" alt="" width={150} height={360} priority />
+      <span className="invitation-cover__petals" aria-hidden="true">
+        <i />
+        <i />
+        <i />
       </span>
-      <span className="invitation-cover__ornament invitation-cover__ornament--right" aria-hidden="true">
-        <Image src="/peacock-feather.svg" alt="" width={150} height={360} priority />
+
+      <span className="invitation-cover__corner" aria-hidden="true">
+        <Image
+          src="/peacock-corner.svg"
+          alt=""
+          width={560}
+          height={560}
+          priority
+        />
       </span>
 
       <span className="invitation-cover__content">
-        <span className="invitation-cover__monogram" aria-hidden="true">A <i>&amp;</i> A</span>
+        <span className="invitation-cover__mark" aria-hidden="true">✦</span>
         <span className="invitation-cover__eyebrow">You&apos;re invited</span>
         <span className="invitation-cover__names">
           {groom.firstName} <i>&amp;</i> {bride.firstName}
         </span>
         <span className="invitation-cover__date">{wedding.dateRange}</span>
+        <span className="invitation-cover__place">{wedding.city}</span>
+
         <span className="invitation-cover__tap">
           <i aria-hidden="true" />
           Tap to open
