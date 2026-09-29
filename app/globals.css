@@ -793,3 +793,53 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.festivities__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.event-card--haldi {
+  border-color: rgb(209 155 38 / 30%);
+}
+
+.event-card__visual--haldi {
+  background: #f5df9c;
+}
+
+.event-card__visual-label--haldi {
+  color: rgb(77 63 29 / 78%);
+}
+
+.event-card__visual-label--haldi i {
+  color: #b87b17;
+}
+
+.event-card__body--haldi {
+  background:
+    radial-gradient(circle at 74% 18%, rgb(191 217 210 / 26%), transparent 13rem),
+    radial-gradient(circle at 22% 78%, rgb(240 183 51 / 15%), transparent 14rem),
+    linear-gradient(180deg, #fffaf0, #fcf1d8);
+}
+
+.event-card--haldi .event-card__date {
+  color: #b27616;
+}
+
+.event-card--haldi .event-card__divider {
+  color: #c68c1d;
+}
+
+.event-card--haldi .event-card__details div {
+  border-top-color: rgb(198 140 29 / 28%);
+}
+
+.event-card--haldi .event-card__details dt {
+  color: #927226;
+}
+
+@media (max-width: 760px) {
+  .event-card--haldi .event-card__visual {
+    order: -1;
+  }
+}
