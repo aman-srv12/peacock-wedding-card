@@ -19,6 +19,11 @@ export const wedding = {
   },
 
   dateRange: "6–8 December 2026",
+  dateDisplay: {
+    month: "December",
+    days: "6–8",
+    year: "2026",
+  },
   city: "Lucknow",
   state: "Uttar Pradesh",
   timezone: "Asia/Kolkata",
@@ -72,7 +77,7 @@ export const wedding = {
   venue: {
     name: "Ritz Resort",
     city: "Lucknow",
-    address: "UPSIDC Industrial Area, Rendua Palhari, Lucknow, Uttar Pradesh 225001",
+    address: "UPSIDC Industrial Area Rendua Palhari, Lucknow, Uttar Pradesh 225003",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Ritz%20Resort%20Lucknow",
   },

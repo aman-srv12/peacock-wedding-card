@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function GaneshWelcome() {
   return (
     <section className="ganesh-welcome" aria-labelledby="ganesh-welcome-title">
@@ -7,7 +9,7 @@ export default function GaneshWelcome() {
         <p className="ganesh-welcome__om" aria-hidden="true">ॐ</p>
 
         <div className="ganesh-welcome__mark" aria-hidden="true">
-          <img src="/ganesh-line-art.svg" alt="" />
+          <Image src="/ganesh-line-art.svg" alt="" width={240} height={260} priority />
         </div>
 
         <p className="ganesh-welcome__invocation">श्री गणेशाय नमः</p>
@@ -23,7 +25,8 @@ export default function GaneshWelcome() {
         </div>
 
         <p className="ganesh-welcome__verse">
-          वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ
+          वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
+          निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
         </p>
         <p className="ganesh-welcome__blessing">
           With the blessings of Lord Ganesha, our celebrations begin.

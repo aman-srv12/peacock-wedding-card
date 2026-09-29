@@ -1,16 +1,18 @@
+import Image from "next/image";
 import { wedding } from "../data/wedding";
 import { OrnamentDivider, RoyalFrame } from "./InvitationUI";
 
 export default function CoupleHero() {
   const { groom, bride } = wedding.couple;
+  const { month, days, year } = wedding.dateDisplay;
 
   return (
     <section className="couple-hero" aria-labelledby="couple-hero-title">
       <div className="couple-hero__feather couple-hero__feather--left" aria-hidden="true">
-        <img src="/peacock-feather.svg" alt="" />
+        <Image src="/peacock-feather.svg" alt="" width={150} height={360} />
       </div>
       <div className="couple-hero__feather couple-hero__feather--right" aria-hidden="true">
-        <img src="/peacock-feather.svg" alt="" />
+        <Image src="/peacock-feather.svg" alt="" width={150} height={360} />
       </div>
 
       <RoyalFrame className="couple-hero__frame">
@@ -31,9 +33,9 @@ export default function CoupleHero() {
           </p>
 
           <div className="couple-hero__date-lockup">
-            <span>December</span>
-            <strong>6–8</strong>
-            <span>2026</span>
+            <span>{month}</span>
+            <strong>{days}</strong>
+            <span>{year}</span>
           </div>
 
           <p className="couple-hero__location">
