@@ -54,6 +54,14 @@ export default function WeddingFestivities() {
                 <dt>Dress Code</dt>
                 <dd>{sangeet.dressCode}</dd>
               </div>
+              <div>
+                <dt>Venue</dt>
+                <dd>{wedding.venue.name}</dd>
+              </div>
+              <div className="event-card__detail--address">
+                <dt>Address</dt>
+                <dd>{wedding.venue.address}</dd>
+              </div>
             </dl>
           </div>
         </article>
