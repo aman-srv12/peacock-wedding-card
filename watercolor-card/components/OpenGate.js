@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Monogram from "./Monogram";
 
 export default function OpenGate() {
   const [open, setOpen] = useState(false);
@@ -18,17 +19,15 @@ export default function OpenGate() {
 
   return (
     <div className="open-gate" role="dialog" aria-label="Open wedding invitation">
-      <div className="open-gate__wash" aria-hidden="true" />
-      <div className="open-gate__content">
-        <div className="monogram" aria-label="A and A">
-          <span>A</span>
-          <i />
-          <span>A</span>
+      <div className="open-gate__card">
+        <div className="open-gate__scene" aria-hidden="true" />
+        <div className="open-gate__content">
+          <Monogram className="open-gate__monogram" />
+          <p className="open-gate__names">Aman &amp; Ananya</p>
+          <button type="button" onClick={() => setOpen(true)}>
+            Tap to Open
+          </button>
         </div>
-        <p>Aman &amp; Ananya</p>
-        <button type="button" onClick={() => setOpen(true)}>
-          Tap to Open
-        </button>
       </div>
     </div>
   );

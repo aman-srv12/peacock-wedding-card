@@ -1,45 +1,56 @@
+import Monogram from "./Monogram";
 import { wedding } from "../data/wedding";
 
 export default function FamilySection() {
   const { groom, bride } = wedding.couple;
 
   return (
-    <section className="family invite-section" aria-labelledby="family-title">
-      <div className="family__background" aria-hidden="true" />
-      <div className="invite-section__inner family__inner">
-        <p className="family__lead">Two families. One promise.</p>
-        <div className="ornament">♥</div>
-        <h2 id="family-title" className="section-title">Introducing the families</h2>
+    <section className="invite-page family-page" aria-labelledby="family-title">
+      <div className="invite-page__scene family-page__scene" aria-hidden="true" />
 
-        <div className="family__grid">
-          <article className="family__person">
-            <p className="eyebrow">Groom</p>
-            <h3>{groom.firstName}</h3>
-            <span className="family__spark">✦</span>
-            <p>Son of</p>
-            <strong>{groom.parents.mother} &amp; {groom.parents.father}</strong>
-          </article>
+      <div className="family-page__content">
+        <p className="family-page__promise">Two families. One promise.</p>
+        <p className="family-page__ornament" aria-hidden="true">❦ ♥ ❦</p>
 
-          <div className="family__monogram monogram" aria-hidden="true">
-            <span>A</span>
-            <i />
-            <span>A</span>
-          </div>
-
-          <article className="family__person">
-            <p className="eyebrow">Bride</p>
-            <h3>{bride.firstName}</h3>
-            <span className="family__spark">✦</span>
-            <p>Daughter of</p>
-            <strong>{bride.parents.mother} &amp; {bride.parents.father}</strong>
-          </article>
+        <h2 id="family-title">Introducing the families</h2>
+        <div className="reference-divider reference-divider--short">
+          <span />
+          <b>❦</b>
+          <span />
         </div>
 
-        <p className="family__closing">
+        <article className="family-block">
+          <h3>{groom.firstName}</h3>
+          <p className="family-block__spark">✦</p>
+          <p className="family-block__relation">Son of</p>
+          <p className="family-block__parents">
+            {groom.parents.mother} &amp;<br />{groom.parents.father}
+          </p>
+        </article>
+
+        <Monogram className="family-page__monogram" />
+
+        <article className="family-block">
+          <h3>{bride.firstName}</h3>
+          <p className="family-block__spark">✦</p>
+          <p className="family-block__relation">Daughter of</p>
+          <p className="family-block__parents">
+            {bride.parents.mother} &amp;<br />{bride.parents.father}
+          </p>
+        </article>
+
+        <div className="reference-divider reference-divider--short">
+          <span />
+          <b>❦</b>
+          <span />
+        </div>
+
+        <p className="family-page__closing">
           Raised with love,<br />
           united by destiny,<br />
-          <span>together forever</span>
+          <em>together forever</em>
         </p>
+        <p className="micro-heart" aria-hidden="true">♥</p>
       </div>
     </section>
   );
