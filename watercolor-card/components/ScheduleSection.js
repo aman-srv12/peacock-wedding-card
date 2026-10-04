@@ -1,64 +1,93 @@
 import { eventTaglines } from "../data/content";
 import { wedding } from "../data/wedding";
 
+const eventMarks = {
+  sangeet: "♪",
+  haldi: "✿",
+  varmala: "❦",
+  reception: "◇",
+  pheras: "✦",
+  vidaai: "❧",
+};
+
 export default function ScheduleSection() {
   return (
-    <section className="schedule invite-section" aria-labelledby="schedule-title">
-      <div className="schedule__background" aria-hidden="true" />
-      <div className="invite-section__inner schedule__inner">
-        <header className="schedule__header">
-          <p className="eyebrow">A celebration of tradition, love &amp; family</p>
-          <h2 id="schedule-title" className="section-title">Schedule of Events</h2>
-          <div className="ornament">♥</div>
-        </header>
+    <>
+      <section className="invite-page schedule-intro" aria-labelledby="schedule-title">
+        <div className="invite-page__scene schedule-intro__scene" aria-hidden="true" />
+        <div className="schedule-intro__content">
+          <p className="schedule-intro__ornament" aria-hidden="true">❦</p>
+          <h2 id="schedule-title">Schedule of Events</h2>
+          <p className="micro-heart" aria-hidden="true">♥</p>
+          <p className="caps-line">
+            A celebration of tradition,<br />love &amp; family
+          </p>
+        </div>
+      </section>
 
-        <div className="schedule__events">
-          {wedding.events.map((event, index) => (
-            <article
-              className={`schedule-card schedule-card--${event.id}`}
-              key={event.id}
-            >
-              <div className="schedule-card__ornament" aria-hidden="true">
-                {index % 2 === 0 ? "❦" : "✦"}
-              </div>
+      {wedding.events.map((event) => (
+        <section
+          className={`invite-page event-page event-page--${event.id}`}
+          key={event.id}
+          aria-labelledby={`event-${event.id}`}
+        >
+          <div className="invite-page__scene event-page__scene" aria-hidden="true" />
 
-              <p className="schedule-card__date">{event.dateLabel}</p>
-              <div className="schedule-card__rule" aria-hidden="true">
+          <article className="event-sheet">
+            <div className="event-sheet__inner">
+              <p className="event-sheet__date">{event.dateLabel}</p>
+              <div className="event-sheet__rule" aria-hidden="true">
                 <span />
                 <i>♦</i>
                 <span />
               </div>
 
-              <h3>{event.name}</h3>
-              <p className="schedule-card__tagline">{eventTaglines[event.id]}</p>
+              <div className="event-sheet__mark" aria-hidden="true">
+                {eventMarks[event.id]}
+              </div>
 
-              <div className="schedule-card__time">{event.timeLabel}</div>
-              {event.note ? <p className="schedule-card__note">{event.note}</p> : null}
+              <h3 id={`event-${event.id}`}>{event.name}</h3>
+              <p className="event-sheet__tagline">{eventTaglines[event.id]}</p>
+
+              <div className="event-sheet__rule event-sheet__rule--small" aria-hidden="true">
+                <span />
+                <i>♥</i>
+                <span />
+              </div>
+
+              <p className="event-sheet__time">{event.timeLabel}</p>
+
+              {event.note ? (
+                <p className="event-sheet__note">{event.note}</p>
+              ) : null}
 
               {event.dressCode ? (
-                <div className="schedule-card__meta">
+                <div className="event-sheet__detail">
                   <span>Dress Code</span>
                   <strong>{event.dressCode}</strong>
                 </div>
               ) : null}
 
-              <div className="schedule-card__meta">
+              <div className="event-sheet__detail">
                 <span>Venue</span>
                 <strong>{wedding.venue.name}</strong>
               </div>
 
               <a
-                className="schedule-card__address"
+                className="event-sheet__address"
                 href={wedding.venue.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
               >
-                {wedding.venue.address} <span aria-hidden="true">↗</span>
+                {wedding.venue.address}
+                <small aria-hidden="true">↗</small>
               </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+
+              <div className="event-sheet__bottom-flourish" aria-hidden="true">❦</div>
+            </div>
+          </article>
+        </section>
+      ))}
+    </>
   );
 }

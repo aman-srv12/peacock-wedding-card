@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 1000">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f7f1e8"/><stop offset="1" stop-color="#eaf0f2"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#c8d8e2"/><stop offset="1" stop-color="#8faaba"/>
+    </linearGradient>
+    <filter id="wash">
+      <feTurbulence type="fractalNoise" baseFrequency=".015 .025" numOctaves="2" seed="25" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+    </filter>
+  </defs>
+  <rect width="562" height="1000" fill="url(#paper)"/>
+  <path d="M0 0h562v287c-61-16-109-5-156 21-58 32-121 45-184 20-73-29-136-42-222-13Z" fill="#f7f1e8"/>
+  <path d="M0 278c78-28 145-18 218 13 68 29 128 15 186-17 50-28 102-39 158-22v448H0Z" fill="#c6d6e0" opacity=".58" filter="url(#wash)"/>
+  <rect y="676" width="562" height="324" fill="url(#water)" opacity=".74"/>
+  <g opacity=".5" stroke="#f4f7f8" stroke-width="2">
+    <path d="M0 740C100 720 183 749 269 731C362 712 451 749 562 723"/>
+    <path d="M0 785C111 768 188 795 291 778C389 762 475 790 562 773"/>
+    <path d="M0 837C88 820 194 849 300 829C399 812 485 840 562 824"/>
+  </g>
+  <g opacity=".84">
+    <path d="M432 252h73v-66h-73z" fill="#e4d8c6"/>
+    <path d="M441 186h55l-11-19h-33z" fill="#b6906b"/>
+    <path d="M460 167h17v-54h-17z" fill="#e7ddcf"/>
+    <path d="M466 113h6l-3-17z" fill="#8a775c"/>
+  </g>
+  <g fill="#71866f" opacity=".9">
+    <ellipse cx="38" cy="31" rx="11" ry="34" transform="rotate(-35 38 31)"/>
+    <ellipse cx="72" cy="20" rx="9" ry="28" transform="rotate(-59 72 20)"/>
+    <ellipse cx="524" cy="663" rx="12" ry="39" transform="rotate(24 524 663)"/>
+    <ellipse cx="493" cy="697" rx="10" ry="32" transform="rotate(48 493 697)"/>
+  </g>
+  <g fill="#f4efe7">
+    <circle cx="42" cy="67" r="20"/><circle cx="78" cy="54" r="16"/>
+    <circle cx="520" cy="638" r="21"/><circle cx="489" cy="673" r="17"/>
+  </g>
+  <g opacity=".88">
+    <path d="M424 879c21-37 35-75 41-112h16c-1 41 7 78 24 112z" fill="#b18b45"/>
+    <ellipse cx="465" cy="882" rx="54" ry="13" fill="#92733e"/>
+    <path d="M453 769h40l-10-46h-20z" fill="#c9a058"/>
+    <ellipse cx="473" cy="724" rx="14" ry="6" fill="#d5b56e"/>
+  </g>
+  <g fill="#6f856e" opacity=".78">
+    <ellipse cx="34" cy="932" rx="12" ry="38" transform="rotate(-28 34 932)"/>
+    <ellipse cx="71" cy="949" rx="10" ry="33" transform="rotate(-49 71 949)"/>
+  </g>
+  <g fill="#f5f0e8">
+    <circle cx="43" cy="905" r="19"/><circle cx="77" cy="930" r="16"/>
+  </g>
+</svg>
