@@ -568,3 +568,203 @@ a { color: inherit; }
     transform: none;
   }
 }
+
+/* Schedule */
+.schedule {
+  background: #eef3f5;
+  text-align: center;
+}
+
+.schedule__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgb(255 255 255 / 10%), rgb(255 255 255 / 8%)),
+    url("/schedule-watercolor.svg") center / cover no-repeat;
+}
+
+.schedule__inner {
+  display: grid;
+  justify-items: center;
+}
+
+.schedule__header {
+  width: min(100%, 44rem);
+}
+
+.schedule__events {
+  display: grid;
+  gap: clamp(2.4rem, 6vw, 4.8rem);
+  width: min(100%, 42rem);
+  margin-top: clamp(2.8rem, 7vw, 5rem);
+}
+
+.schedule-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  min-height: min(82svh, 52rem);
+  align-content: center;
+  padding: clamp(3rem, 7vw, 5.2rem) clamp(1.5rem, 5vw, 4rem);
+  border: 1px solid rgb(170 137 80 / 30%);
+  background:
+    linear-gradient(rgb(253 249 241 / 91%), rgb(253 249 241 / 91%)),
+    radial-gradient(circle at 50% 34%, rgb(170 137 80 / 10%), transparent 18rem);
+  box-shadow: 0 26px 62px rgb(45 69 87 / 12%);
+}
+
+.schedule-card::before,
+.schedule-card::after {
+  content: "";
+  position: absolute;
+  inset: 0.8rem;
+  border: 1px solid rgb(170 137 80 / 12%);
+  pointer-events: none;
+}
+
+.schedule-card::after {
+  inset: 1.12rem;
+  border-style: dotted;
+  opacity: 0.45;
+}
+
+.schedule-card__ornament {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.schedule-card__date {
+  margin: 1rem 0 0;
+  color: var(--blue-deep);
+  font-family: var(--display-font);
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.schedule-card__rule {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.65rem;
+  width: min(14rem, 70%);
+  margin: 0.9rem auto 0;
+  color: var(--gold);
+}
+
+.schedule-card__rule span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(170 137 80 / 70%));
+}
+
+.schedule-card__rule span:last-child {
+  transform: scaleX(-1);
+}
+
+.schedule-card__rule i {
+  font-size: 0.48rem;
+  font-style: normal;
+}
+
+.schedule-card h3 {
+  margin: 1.4rem 0 0;
+  color: var(--ink);
+  font-family: var(--script-font);
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.schedule-card__tagline {
+  max-width: 27rem;
+  margin: 1rem auto 0;
+  color: var(--ink-soft);
+  font-family: var(--display-font);
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.schedule-card__time {
+  margin-top: 1.5rem;
+  color: var(--blue-deep);
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 600;
+}
+
+.schedule-card__note {
+  max-width: 28rem;
+  margin: 0.4rem auto 0;
+  color: var(--ink-soft);
+  font-family: var(--display-font);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.schedule-card__meta {
+  display: grid;
+  gap: 0.25rem;
+  width: min(100%, 30rem);
+  margin-top: 1.2rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgb(170 137 80 / 24%);
+}
+
+.schedule-card__meta span {
+  color: var(--gold);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.schedule-card__meta strong {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.schedule-card__address {
+  max-width: 29rem;
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  font-family: var(--display-font);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  text-decoration-color: rgb(55 93 127 / 35%);
+  text-underline-offset: 0.18em;
+}
+
+.schedule-card__address span {
+  color: var(--gold);
+  margin-left: 0.2rem;
+}
+
+.schedule-card--haldi {
+  background:
+    linear-gradient(rgb(255 250 228 / 92%), rgb(255 250 228 / 92%)),
+    radial-gradient(circle at 50% 35%, rgb(232 179 61 / 20%), transparent 18rem);
+}
+
+.schedule-card--varmala,
+.schedule-card--pheras {
+  background:
+    linear-gradient(rgb(251 244 237 / 92%), rgb(251 244 237 / 92%)),
+    radial-gradient(circle at 50% 35%, rgb(156 50 65 / 12%), transparent 18rem);
+}
+
+.schedule-card--reception {
+  background:
+    linear-gradient(rgb(245 247 247 / 92%), rgb(245 247 247 / 92%)),
+    radial-gradient(circle at 50% 35%, rgb(74 103 132 / 13%), transparent 18rem);
+}
+
+.schedule-card--vidaai {
+  background:
+    linear-gradient(rgb(255 248 239 / 92%), rgb(255 248 239 / 92%)),
+    radial-gradient(circle at 50% 35%, rgb(202 159 112 / 14%), transparent 18rem);
+}

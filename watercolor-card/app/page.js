@@ -1,6 +1,7 @@
 import FamilySection from "../components/FamilySection";
 import HeroSection from "../components/HeroSection";
 import OpenGate from "../components/OpenGate";
+import ScheduleSection from "../components/ScheduleSection";
 import StorySection from "../components/StorySection";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <FamilySection />
       <StorySection />
+      <ScheduleSection />
     </main>
   );
 }
