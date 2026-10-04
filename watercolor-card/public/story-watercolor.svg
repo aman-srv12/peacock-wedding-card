@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 1000">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f8f2e8"/><stop offset="1" stop-color="#eee7da"/>
+    </linearGradient>
+    <filter id="wash">
+      <feTurbulence type="fractalNoise" baseFrequency=".018 .025" numOctaves="2" seed="18" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+    </filter>
+  </defs>
+  <rect width="562" height="1000" fill="url(#paper)"/>
+  <path d="M0 0h250C206 67 195 143 151 205C112 260 63 281 0 291Z" fill="#c5d7e2" opacity=".44" filter="url(#wash)"/>
+  <path d="M562 0H366C401 70 417 132 453 195C486 253 521 282 562 296Z" fill="#cbd9e1" opacity=".38" filter="url(#wash)"/>
+  <path d="M0 687C65 635 129 659 181 703C235 750 289 755 342 723C401 687 448 636 562 671V1000H0Z" fill="#c0d2dd" opacity=".35" filter="url(#wash)"/>
+  <g fill="#71866f" opacity=".9">
+    <ellipse cx="36" cy="34" rx="11" ry="35" transform="rotate(-34 36 34)"/>
+    <ellipse cx="68" cy="22" rx="9" ry="30" transform="rotate(-58 68 22)"/>
+    <ellipse cx="101" cy="38" rx="8" ry="28" transform="rotate(-69 101 38)"/>
+    <ellipse cx="526" cy="872" rx="12" ry="39" transform="rotate(24 526 872)"/>
+    <ellipse cx="497" cy="905" rx="10" ry="32" transform="rotate(48 497 905)"/>
+    <ellipse cx="459" cy="924" rx="9" ry="28" transform="rotate(62 459 924)"/>
+  </g>
+  <g fill="#f4efe7">
+    <circle cx="39" cy="71" r="20"/><circle cx="76" cy="58" r="16"/><circle cx="109" cy="73" r="15"/>
+    <circle cx="520" cy="846" r="20"/><circle cx="489" cy="876" r="16"/><circle cx="454" cy="896" r="15"/>
+  </g>
+  <g opacity=".62" fill="#e4d8c6">
+    <path d="M0 814c51 4 89-15 127-47l10 124H0z"/>
+    <rect x="31" y="769" width="75" height="121" rx="8"/>
+  </g>
+  <path d="M0 905C90 887 150 917 227 901C336 878 421 928 562 889V1000H0Z" fill="#9fb8c6" opacity=".22"/>
+  <g opacity=".52" stroke="#8aa2b1" fill="none">
+    <circle cx="418" cy="190" r="33" stroke-width="2"/>
+    <circle cx="418" cy="190" r="26" stroke-width="1"/>
+    <path d="M380 164h93M386 171h83M445 153c15 5 31 7 51 5" stroke-width="1"/>
+  </g>
+</svg>
