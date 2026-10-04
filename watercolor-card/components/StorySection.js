@@ -1,25 +1,5 @@
 import Image from "next/image";
-
-const storyCards = [
-  {
-    src: "/story-caricature-1.svg",
-    alt: "Watercolor caricature placeholder of Aman and Ananya meeting",
-    caption: "Every journey led us here",
-    rotate: "story-card--left",
-  },
-  {
-    src: "/story-caricature-2.svg",
-    alt: "Watercolor caricature placeholder of Aman and Ananya travelling",
-    caption: "From adventures to forever",
-    rotate: "story-card--right",
-  },
-  {
-    src: "/story-caricature-3.svg",
-    alt: "Watercolor caricature placeholder of Aman and Ananya celebrating",
-    caption: "Our best adventure begins now",
-    rotate: "story-card--left-soft",
-  },
-];
+import { storyCards } from "../data/content";
 
 export default function StorySection() {
   return (
@@ -32,7 +12,7 @@ export default function StorySection() {
 
         <div className="story__cards">
           {storyCards.map((card) => (
-            <figure className={`story-card ${card.rotate}`} key={card.src}>
+            <figure className={`story-card ${card.rotateClass}`} key={card.src}>
               <div className="story-card__image">
                 <Image
                   src={card.src}

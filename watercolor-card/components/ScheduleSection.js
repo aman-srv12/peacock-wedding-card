@@ -1,13 +1,5 @@
+import { eventTaglines } from "../data/content";
 import { wedding } from "../data/wedding";
-
-const eventTaglines = {
-  sangeet: "An evening of music, laughter & dancing",
-  haldi: "A morning of colour, flowers & blessings",
-  varmala: "Garlands, promises & the beginning of forever",
-  reception: "Dinner, celebration & togetherness",
-  pheras: "Sacred vows around the fire",
-  vidaai: "A tender morning of blessings & new beginnings",
-};
 
 export default function ScheduleSection() {
   return (
