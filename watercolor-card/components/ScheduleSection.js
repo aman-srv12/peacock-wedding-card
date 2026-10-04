@@ -1,14 +1,6 @@
 import { eventLayouts, eventTaglines } from "../data/content";
 import { wedding } from "../data/wedding";
-
-const eventMarks = {
-  sangeet: "♪",
-  haldi: "✿",
-  varmala: "❦",
-  reception: "◇",
-  pheras: "✦",
-  vidaai: "❧",
-};
+import EventMark from "./EventMark";
 
 export default function ScheduleSection() {
   return (
@@ -37,6 +29,11 @@ export default function ScheduleSection() {
             <div className="invite-page__scene event-page__scene" aria-hidden="true" />
 
             <article className={`event-sheet event-sheet--${layout}`}>
+              <span className="event-sheet__corner event-sheet__corner--tl" aria-hidden="true">❦</span>
+              <span className="event-sheet__corner event-sheet__corner--tr" aria-hidden="true">❦</span>
+              <span className="event-sheet__corner event-sheet__corner--bl" aria-hidden="true">❦</span>
+              <span className="event-sheet__corner event-sheet__corner--br" aria-hidden="true">❦</span>
+
               <div className="event-sheet__inner">
                 <p className="event-sheet__date">{event.dateLabel}</p>
                 <div className="event-sheet__rule" aria-hidden="true">
@@ -45,8 +42,8 @@ export default function ScheduleSection() {
                   <span />
                 </div>
 
-                <div className="event-sheet__mark" aria-hidden="true">
-                  {eventMarks[event.id]}
+                <div className="event-sheet__mark">
+                  <EventMark type={event.id} />
                 </div>
 
                 <h3 id={`event-${event.id}`}>{event.name}</h3>
