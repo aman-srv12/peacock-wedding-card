@@ -9,8 +9,10 @@ export default function RsvpSection() {
 
   const submitRsvp = (event) => {
     event.preventDefault();
+
     const response =
       attending === "accept" ? "Joyfully accepts" : "Regretfully declines";
+
     const message = [
       "Wedding RSVP — Aman & Ananya",
       `Name: ${name.trim() || "Guest"}`,
@@ -23,19 +25,17 @@ export default function RsvpSection() {
   };
 
   return (
-    <section className="rsvp invite-section" aria-labelledby="rsvp-title">
-      <div className="rsvp__wash" aria-hidden="true" />
-      <div className="invite-section__inner rsvp__inner">
-        <div className="rsvp__monogram monogram" aria-hidden="true">
-          <span>A</span>
-          <i />
-          <span>A</span>
-        </div>
+    <section className="invite-page rsvp-page" aria-labelledby="rsvp-title">
+      <div className="invite-page__scene rsvp-page__scene" aria-hidden="true" />
 
-        <div className="rsvp__shape paper-card">
-          <p className="eyebrow">Aman &amp; Ananya</p>
-          <h2 id="rsvp-title" className="section-title">RSVP</h2>
-          <div className="ornament">♥</div>
+      <div className="rsvp-arch">
+        <span className="rsvp-arch__lobe rsvp-arch__lobe--left" aria-hidden="true" />
+        <span className="rsvp-arch__lobe rsvp-arch__lobe--right" aria-hidden="true" />
+
+        <div className="rsvp-arch__content">
+          <p className="rsvp-arch__initials">A <i /> A</p>
+          <h2 id="rsvp-title">RSVP</h2>
+          <p className="micro-heart" aria-hidden="true">♥</p>
 
           <form className="rsvp-form" onSubmit={submitRsvp}>
             <label>
@@ -72,28 +72,37 @@ export default function RsvpSection() {
             </fieldset>
 
             <button className="rsvp-form__submit" type="submit">
-              Send RSVP on WhatsApp
+              Send RSVP
             </button>
           </form>
 
-          <p className="rsvp__note">
+          <p className="rsvp-arch__note">
             Celebrate this new chapter with us.
           </p>
-        </div>
 
-        <div className="venue-card">
-          <p className="eyebrow">Wedding Venue</p>
-          <h3>{wedding.venue.name}</h3>
-          <p>{wedding.venue.address}</p>
-          <a href={wedding.venue.mapsUrl} target="_blank" rel="noreferrer">
-            <span aria-hidden="true">📍</span> Get Directions
-          </a>
+          <div className="rsvp-map" aria-label="Ritz Resort location">
+            <div className="rsvp-map__roads" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="rsvp-map__pin" aria-hidden="true">●</div>
+            <div className="rsvp-map__label">
+              <strong>{wedding.venue.name}</strong>
+              <span>{wedding.city}, {wedding.state}</span>
+            </div>
+          </div>
         </div>
-
-        <p className="rsvp__closing script-title">
-          With love, Aman &amp; Ananya
-        </p>
       </div>
+
+      <a
+        className="rsvp-page__directions"
+        href={wedding.venue.mapsUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span aria-hidden="true">⌖</span> Get Directions
+      </a>
     </section>
   );
 }

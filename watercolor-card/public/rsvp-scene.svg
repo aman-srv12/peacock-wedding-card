@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 1000">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f8f2e8"/><stop offset="1" stop-color="#eaf0f2"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#c9d9e2"/><stop offset="1" stop-color="#8faaba"/>
+    </linearGradient>
+    <filter id="wash">
+      <feTurbulence type="fractalNoise" baseFrequency=".015 .024" numOctaves="2" seed="31" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+    </filter>
+  </defs>
+  <rect width="562" height="1000" fill="url(#paper)"/>
+  <path d="M0 0h562v1000H0z" fill="#f7f1e8" opacity=".28"/>
+  <path d="M370 0h192v330c-56-30-101-26-147-5-33 15-70 28-114 24 41-84 59-203 69-349Z" fill="#c7d8e2" opacity=".38" filter="url(#wash)"/>
+  <path d="M0 655c55-45 113-52 172-24 53 26 103 45 154 25 65-25 119-48 236-23V1000H0Z" fill="#c3d4de" opacity=".4" filter="url(#wash)"/>
+  <rect y="804" width="562" height="196" fill="url(#lake)" opacity=".74"/>
+  <g opacity=".5" stroke="#f4f7f8" stroke-width="2">
+    <path d="M0 850C98 832 181 860 269 843C366 824 456 858 562 836"/>
+    <path d="M0 896C112 879 201 905 298 889C392 873 475 900 562 883"/>
+  </g>
+  <g opacity=".86">
+    <path d="M430 237h77v-68h-77z" fill="#e5dac8"/>
+    <path d="M440 169h58l-12-20h-35z" fill="#b8926e"/>
+    <rect x="455" y="191" width="11" height="24" fill="#9db4c1"/>
+    <rect x="480" y="191" width="11" height="24" fill="#9db4c1"/>
+  </g>
+  <g opacity=".8">
+    <path d="M56 853l28-59 28 59z" fill="#f6f2e9"/>
+    <path d="M84 794v84" stroke="#a88c64" stroke-width="2"/>
+    <path d="M45 881c30 8 58 8 87 0" fill="none" stroke="#8f785d" stroke-width="3"/>
+  </g>
+  <g fill="#70866e" opacity=".9">
+    <ellipse cx="38" cy="33" rx="12" ry="39" transform="rotate(-35 38 33)"/>
+    <ellipse cx="74" cy="20" rx="10" ry="32" transform="rotate(-58 74 20)"/>
+    <ellipse cx="527" cy="593" rx="12" ry="40" transform="rotate(24 527 593)"/>
+    <ellipse cx="495" cy="626" rx="10" ry="33" transform="rotate(49 495 626)"/>
+  </g>
+  <g fill="#f5f0e8">
+    <circle cx="42" cy="72" r="22"/><circle cx="80" cy="58" r="17"/><circle cx="113" cy="78" r="15"/>
+    <circle cx="520" cy="565" r="22"/><circle cx="486" cy="601" r="18"/><circle cx="452" cy="625" r="16"/>
+  </g>
+  <g fill="#d8b3b5" opacity=".72">
+    <circle cx="117" cy="45" r="11"/><circle cx="465" cy="655" r="12"/>
+  </g>
+</svg>
