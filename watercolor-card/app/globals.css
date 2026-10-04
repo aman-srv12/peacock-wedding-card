@@ -1246,3 +1246,49 @@ a { color: inherit; }
     }
   }
 }
+
+/* Story page proportions and second editorial storyboard */
+.story-sheet {
+  aspect-ratio: 562 / 1000;
+  display: grid;
+  align-items: center;
+}
+
+.story-sheet__paper {
+  max-height: 94%;
+}
+
+.story-sheet__overlay--right {
+  display: grid;
+  align-content: start;
+  justify-items: end;
+  padding-left: 43%;
+  background: linear-gradient(270deg, rgb(17 17 17 / 59%), rgb(17 17 17 / 8%) 82%, transparent);
+  text-align: right;
+}
+
+.story-sheet__subscript {
+  margin: 0.15rem 0 0;
+  font-family: var(--display-font);
+  font-size: clamp(0.44rem, 1.55vw, 0.6rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.story-sheet__milestones--right {
+  width: 100%;
+  margin-top: 9%;
+}
+
+.story-sheet__milestones--right > div {
+  grid-template-columns: 1fr 1rem;
+}
+
+.story-sheet__milestones--right > div > span {
+  order: 2;
+}
+
+.story-sheet__milestones--right strong,
+.story-sheet__milestones--right small {
+  text-align: right;
+}
