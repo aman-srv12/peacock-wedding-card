@@ -1,4 +1,4 @@
-import { eventTaglines } from "../data/content";
+import { eventLayouts, eventTaglines } from "../data/content";
 import { wedding } from "../data/wedding";
 
 const eventMarks = {
@@ -25,69 +25,73 @@ export default function ScheduleSection() {
         </div>
       </section>
 
-      {wedding.events.map((event) => (
-        <section
-          className={`invite-page event-page event-page--${event.id}`}
-          key={event.id}
-          aria-labelledby={`event-${event.id}`}
-        >
-          <div className="invite-page__scene event-page__scene" aria-hidden="true" />
+      {wedding.events.map((event) => {
+        const layout = eventLayouts[event.id] || "framed";
 
-          <article className="event-sheet">
-            <div className="event-sheet__inner">
-              <p className="event-sheet__date">{event.dateLabel}</p>
-              <div className="event-sheet__rule" aria-hidden="true">
-                <span />
-                <i>♦</i>
-                <span />
-              </div>
+        return (
+          <section
+            className={`invite-page event-page event-page--${event.id} event-page--${layout}`}
+            key={event.id}
+            aria-labelledby={`event-${event.id}`}
+          >
+            <div className="invite-page__scene event-page__scene" aria-hidden="true" />
 
-              <div className="event-sheet__mark" aria-hidden="true">
-                {eventMarks[event.id]}
-              </div>
-
-              <h3 id={`event-${event.id}`}>{event.name}</h3>
-              <p className="event-sheet__tagline">{eventTaglines[event.id]}</p>
-
-              <div className="event-sheet__rule event-sheet__rule--small" aria-hidden="true">
-                <span />
-                <i>♥</i>
-                <span />
-              </div>
-
-              <p className="event-sheet__time">{event.timeLabel}</p>
-
-              {event.note ? (
-                <p className="event-sheet__note">{event.note}</p>
-              ) : null}
-
-              {event.dressCode ? (
-                <div className="event-sheet__detail">
-                  <span>Dress Code</span>
-                  <strong>{event.dressCode}</strong>
+            <article className={`event-sheet event-sheet--${layout}`}>
+              <div className="event-sheet__inner">
+                <p className="event-sheet__date">{event.dateLabel}</p>
+                <div className="event-sheet__rule" aria-hidden="true">
+                  <span />
+                  <i>♦</i>
+                  <span />
                 </div>
-              ) : null}
 
-              <div className="event-sheet__detail">
-                <span>Venue</span>
-                <strong>{wedding.venue.name}</strong>
+                <div className="event-sheet__mark" aria-hidden="true">
+                  {eventMarks[event.id]}
+                </div>
+
+                <h3 id={`event-${event.id}`}>{event.name}</h3>
+                <p className="event-sheet__tagline">{eventTaglines[event.id]}</p>
+
+                <div className="event-sheet__rule event-sheet__rule--small" aria-hidden="true">
+                  <span />
+                  <i>♥</i>
+                  <span />
+                </div>
+
+                <p className="event-sheet__time">{event.timeLabel}</p>
+
+                {event.note ? (
+                  <p className="event-sheet__note">{event.note}</p>
+                ) : null}
+
+                {event.dressCode ? (
+                  <div className="event-sheet__detail">
+                    <span>Dress Code</span>
+                    <strong>{event.dressCode}</strong>
+                  </div>
+                ) : null}
+
+                <div className="event-sheet__detail">
+                  <span>Venue</span>
+                  <strong>{wedding.venue.name}</strong>
+                </div>
+
+                <a
+                  className="event-sheet__address"
+                  href={wedding.venue.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {wedding.venue.address}
+                  <small aria-hidden="true">↗</small>
+                </a>
+
+                <div className="event-sheet__bottom-flourish" aria-hidden="true">❦</div>
               </div>
-
-              <a
-                className="event-sheet__address"
-                href={wedding.venue.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {wedding.venue.address}
-                <small aria-hidden="true">↗</small>
-              </a>
-
-              <div className="event-sheet__bottom-flourish" aria-hidden="true">❦</div>
-            </div>
-          </article>
-        </section>
-      ))}
+            </article>
+          </section>
+        );
+      })}
     </>
   );
 }

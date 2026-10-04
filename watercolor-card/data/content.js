@@ -2,20 +2,37 @@ export const storyCards = [
   {
     src: "/story-caricature-1.svg",
     alt: "Watercolor caricature placeholder of Aman and Ananya meeting",
-    caption: "Every journey led us here",
-    rotateClass: "story-card--left",
+    caption: "Where our favorite chapter began",
   },
   {
     src: "/story-caricature-2.svg",
     alt: "Watercolor caricature placeholder of Aman and Ananya travelling",
-    caption: "From adventures to forever",
-    rotateClass: "story-card--right",
+    caption: "Two lives, one beautiful rhythm",
   },
   {
     src: "/story-caricature-3.svg",
     alt: "Watercolor caricature placeholder of Aman and Ananya celebrating",
-    caption: "Our best adventure begins now",
-    rotateClass: "story-card--left-soft",
+    caption: "From adventures to forever",
+  },
+  {
+    src: "/story-caricature-1.svg",
+    alt: "Watercolor caricature placeholder of Aman and Ananya together",
+    caption: "Every road kept bringing us closer",
+  },
+  {
+    src: "/story-caricature-2.svg",
+    alt: "Watercolor caricature placeholder of Aman and Ananya sharing a moment",
+    caption: "A thousand little moments became us",
+  },
+  {
+    src: "/story-caricature-3.svg",
+    alt: "Watercolor caricature placeholder of Aman and Ananya on an adventure",
+    caption: "The best part is still ahead",
+  },
+  {
+    src: "/story-caricature-1.svg",
+    alt: "Watercolor caricature placeholder of Aman and Ananya beginning forever",
+    caption: "We wrote our story. Now comes forever",
   },
 ];
 
@@ -26,4 +43,13 @@ export const eventTaglines = {
   reception: "Dinner, celebration & togetherness",
   pheras: "Sacred vows around the fire",
   vidaai: "A tender morning of blessings & new beginnings",
+};
+
+export const eventLayouts = {
+  sangeet: "framed",
+  haldi: "framed",
+  varmala: "integrated",
+  reception: "torn",
+  pheras: "integrated",
+  vidaai: "framed",
 };
